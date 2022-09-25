@@ -1,0 +1,10 @@
+@keyframes jumpAnim {
+
+    25% {
+        transform: translateY(-2px);
+    }
+
+    75% {
+        transform: translateY(1px);
+    }
+}

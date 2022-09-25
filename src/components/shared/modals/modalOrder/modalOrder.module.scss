@@ -1,0 +1,39 @@
+.formInner {
+    padding: 40px;
+
+    input,
+    textarea {
+        display: block;
+        width: 100%;
+        padding: 0 20px;
+        margin-bottom: 10px;
+        background: #E9EFF6;
+        line-height: 40px;
+        border-width: 0;
+        border-radius: 20px;
+        font-family: 'Roboto', sans-serif;
+        outline: none;
+        // outline: 1px solid #536d83;
+    }
+
+    input[type="submit"] {
+        cursor: pointer;
+        margin-top: 30px;
+        background: #C7A17A;
+        // border-bottom: 4px solid #d87d56;
+        color: white;
+        font-size: 14px;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    h3 {
+        margin-top: 0;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        color: #707981;
+    }
+}

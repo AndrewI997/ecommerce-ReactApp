@@ -1,0 +1,194 @@
+@import '../../styles/variables';
+@import '../../styles/animations.scss';
+
+a:visited {
+    color: $black;
+}
+
+header {
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 200px;
+    background-color: $bones1;
+
+    .logo {
+        position: relative;
+        display: flex;
+        margin-right: 20px;
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: #333333;
+        transition: 1.2s;
+        width: max-content;
+
+        &:hover {
+            animation-duration: 0.5s;
+            animation-name: jumpAnim;
+            animation-iteration-count: infinite;
+        }
+    }
+
+    .navigation {
+
+        ul {
+            min-width: max-content;
+            display: flex;
+            padding: 0;
+            margin: 0;
+
+            .link {
+                display: flex;
+                align-items: center;
+                height: 45px;
+                color: black;
+                font-weight: 300;
+                transition: 0.3s;
+                margin-right: 30px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                &:hover {
+                    transform: translateY(-5px);
+                    transition: 0.3s;
+                }
+            }
+        }
+    }
+}
+
+.phone {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    margin-left: 70px;
+    font-size: 1.3rem;
+    font-weight: 300;
+    min-width: max-content;
+    color: black;
+
+    &:hover {
+        animation-duration: 0.5s;
+        animation-name: jumpAnim;
+        animation-iteration-count: infinite;
+    }
+}
+
+
+
+
+
+// DROPDOWN
+
+// .droplink {
+
+//     .dropdown {
+//         opacity: 0;
+//         pointer-events: none;
+//         width: 200%;
+//         position: absolute;
+//         display: grid;
+//         grid-template-columns: repeat(2, 1fr);
+//         grid-template-rows: 1fr;
+//         grid-column-gap: 0px;
+//         grid-row-gap: 0px;
+//         left: -50%;
+//         top: 100%;
+//         border-top: 1px solid rgb(212, 212, 212);
+//         background-color: white;
+//         min-width: 160px;
+//         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+//         z-index: 5;
+//         transform: translateY(20px);
+//         transition: 0.45s;
+
+//         a {
+//             display: flex;
+//             justify-content: center;
+//             text-align: center;
+//             padding: 20px 0;
+
+//             &:hover {
+//                 animation-duration: 0.5s;
+//                 animation-name: jumpAnim;
+//                 animation-iteration-count: infinite;
+//             }
+//         }
+
+//         .droplink_title {
+//             font-size: 1.2rem;
+//             font-weight: 600;
+
+//             &:hover {
+//                 color: rgb(182, 0, 0);
+//             }
+//         }
+
+//         .droplink2 {
+
+//             .dropdown2 {
+//                 width: 50%;
+//                 position: absolute;
+//                 display: flex;
+//                 flex-direction: column;
+//                 left: 0;
+//                 top: 100%;
+//                 width: 50%;
+//                 background-color: white;
+//                 box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+//                 z-index: 1;
+//                 opacity: 0;
+//                 pointer-events: none;
+//                 transform: translateY(20px);
+//                 transition: 0.45s;
+//             }
+
+//             &:hover {
+//                 .dropdown2 {
+//                     opacity: 1;
+//                     pointer-events: all;
+//                     transform: translateY(0);
+//                 }
+//             }
+//         }
+
+//         .droplink3 {
+//             .dropdown3 {
+//                 width: 50%;
+//                 position: absolute;
+//                 display: flex;
+//                 flex-direction: column;
+//                 right: 0;
+//                 top: 100%;
+//                 width: 50%;
+//                 background-color: white;
+//                 box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+//                 z-index: 1;
+//                 opacity: 0;
+//                 pointer-events: none;
+//                 transform: translateY(20px);
+//                 transition: 0.45s;
+//             }
+
+//             &:hover {
+//                 .dropdown3 {
+//                     opacity: 1;
+//                     pointer-events: all;
+//                     transform: translateY(0);
+//                 }
+//             }
+//         }
+//     }
+
+//     &:hover {
+
+//         .dropdown {
+//             opacity: 1;
+//             pointer-events: all;
+//             transform: translateY(0);
+//         }
+//     }
+// }
