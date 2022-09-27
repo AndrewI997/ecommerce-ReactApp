@@ -10,16 +10,11 @@ import ModalOrder from '../../shared/modals/modalOrder/ModalOrder';
 
 const ItemBlock = ({ }: any) => {
 
-    // const [clickedType, setClickedType] = React.useState(0)
-    // const [clickedSubType, setClickedSubType] = React.useState(0)
-    // const [clickedStyle, setClickedStyle] = React.useState(0)
-    // const [clickedKind, setClickedKind] = React.useState(0)
     const [modalOrderActive, setModalOrderActive] = React.useState(false)
     const [modalItemActive, setModalItemActive] = React.useState(false)
     const [modalItemState, setModalItemState] = React.useState();
 
     const [itemsState, setItemsState] = React.useState([]);
-
     React.useEffect(() => {
         fetch('http://localhost:4321/item')
             .then((res) => {
@@ -31,7 +26,6 @@ const ItemBlock = ({ }: any) => {
     }, [])
 
     return (
-
         <Wrapper>
             {/* <ItemsFilterBar
                 clickedType={clickedType}

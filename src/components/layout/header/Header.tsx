@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink, useNavigate } from "react-router-dom";
 import s from './header.module.scss'
-import { ADMIN_ROUTE, HOME_ROUTE, GALLERY_ROUTE, ABOUT_ROUTER } from '../../consts/consts';
+import { ADMIN_ROUTE, HOME_ROUTE, GALLERY_ROUTE, ABOUT_ROUTER } from '../../../consts/consts';
 
 const Header = () => {
   return (

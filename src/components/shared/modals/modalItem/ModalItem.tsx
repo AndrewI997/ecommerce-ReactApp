@@ -3,10 +3,11 @@ import ModalWrap from '../modalWrap/ModalWrap'
 import s from './ModalItem.module.scss'
 
 const ModalItem = ({ modalItemActive, setModalItemActive, setModalOrderActive, modalItemState }: any) => {
+  
   return (
     <ModalWrap active={modalItemActive} setActive={setModalItemActive} onClick={(e: Event) => e.stopPropagation()}>
       <div className={s.modalImgWrapp}>
-        <img src={/*images*/''} alt="picture" />
+        <img src={''} alt="picture" />
       </div>
       <div className={s.modalContentWrap}>
         <h3 className={s.title}>{modalItemState?.name}</h3>
@@ -15,7 +16,11 @@ const ModalItem = ({ modalItemActive, setModalItemActive, setModalOrderActive, m
         </p>
         <p>Цена: <span className={s.price}>{modalItemState?.price}</span></p>
         <div className={s.toggleWrap}>
-          <button className={s.toggleBuy} onClick={(e) => { e.preventDefault(); setModalOrderActive(true) }}>Заказать</button>
+          <button className={s.toggleBuy}
+            onClick={(e) => {
+              e.preventDefault()
+              setModalOrderActive(true)
+            }}>Заказать</button>
         </div>
       </div>
     </ModalWrap>

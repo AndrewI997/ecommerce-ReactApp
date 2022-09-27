@@ -3,6 +3,7 @@ import ModalWrap from '../modalWrap/ModalWrap'
 import s from './modalOrder.module.scss'
 
 const ModalOrder = ({ active, setActive }: any) => {
+    
     return (
         <ModalWrap active={active} setActive={setActive}>
             <div className={s.formInner}>
