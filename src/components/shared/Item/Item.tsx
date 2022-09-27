@@ -1,6 +1,5 @@
 import React from 'react'
 import s from './item.module.scss'
-// import images from '../../../images/kitchen.webp'
 
 const Item = ({ obj, setModalOrderActive, setModalItemActive, setModalItemState }: any) => {
 

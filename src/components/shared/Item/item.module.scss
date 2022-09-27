@@ -1,7 +1,5 @@
-p,
-h3 {
-  margin: 0;
-}
+@import '../../../styles/variables.scss';
+
 
 .card {
   display: grid;
@@ -14,15 +12,14 @@ h3 {
   align-items: center;
   font-family: Nunito, sans-serif;
   max-width: 500px;
-  background-color: white;
+  background-color: $white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05), 0 5px 5px rgba(0, 0, 0, 0.05);
-  border: 1px solid #C7A17A;
+  border: 1px solid $brown;
 
   .imgWrap {
     background-color: lightgray;
     width: 100%;
     height: 100%;
-
 
     img {
       width: 100%;
@@ -33,116 +30,63 @@ h3 {
 
   .contentWrap {
     padding: 10px;
-    // margin-top: 40px;
 
+    .title {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 28px;
+      color: #232C38;
+      margin-top: 10px;
+    }
+
+    .description {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 22px;
+      color: #151D28;
+      margin: 20px 0;
+    }
+
+    .price {
+      position: relative;
+      font-weight: 600;
+      font-size: 20px;
+      color: $brown;
+    }
 
     .toggleWrap {
       margin-top: 25px;
       display: flex;
       justify-content: flex-start;
 
-
-    }
-  }
-}
-
-.title {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 28px;
-  color: #232C38;
-  margin-top: 10px;
-}
-
-.description {
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 22px;
-  color: #151D28;
-  margin: 20px 0;
-}
-
-.price {
-  position: relative;
-  font-weight: 600;
-  font-size: 20px;
-  color: #C7A17A;
-}
-
-
-.toggleBuy,
-.toggleInfo {
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 32px;
-  cursor: pointer;
-}
-
-.toggleBuy {
-  cursor: pointer;
-  display: block;
-  width: 134px;
-  margin-left: 10px;
-  background: #C7A17A;
-  border-radius: 19px;
-  text-align: center;
-  color: #F9FBFF;
-  border: none;
-}
-
-.toggleInfo {
-  display: block;
-  
-  color: #415167;
-  background: none;
-  border: none;
-}
-
-.itemCardModal {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  z-index: 20;
-  background-color: rgba(0, 0, 0, 0.54);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.3s;
-
-  &.active {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .itemCardModalWrapp {
-    padding: 20px;
-    background-color: #ffffff;
-    transform: scale(0.3);
-    transition: 0.5s;
-
-    &.active {
-      transform: scale(1);
-    }
-
-
-    .modalImgWrapp {
-      max-width: 800px;
-
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+      .toggleBuy,
+      .toggleInfo {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 32px;
+        cursor: pointer;
       }
 
+      .toggleBuy {
+        cursor: pointer;
+        display: block;
+        width: 134px;
+        margin-left: 10px;
+        background: $brown;
+        border-radius: 19px;
+        text-align: center;
+        color: #F9FBFF;
+        border: none;
+      }
+
+      .toggleInfo {
+        display: block;
+        color: #415167;
+        background: none;
+        border: none;
+      }
     }
   }
-
-
 }

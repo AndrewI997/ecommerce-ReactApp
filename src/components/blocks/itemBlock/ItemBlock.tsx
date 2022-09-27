@@ -60,7 +60,6 @@ const ItemBlock = ({ }: any) => {
                 active={modalOrderActive} 
                 setActive={setModalOrderActive}
                 />
-                
             </div>
         </Wrapper>
     )
