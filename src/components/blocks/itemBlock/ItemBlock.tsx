@@ -2,19 +2,22 @@ import React from 'react'
 import Item from '../../shared/Item/Item';
 import Wrapper from '../../shared/wrapper/Wrapper';
 import s from './itemBlock.module.scss'
-// import ItemCardModal from '../../shared/Item/ItemCardModal';
+import ModalItem from '../../shared/modals/modalItem/ModalItem';
+import ModalOrder from '../../shared/modals/modalOrder/ModalOrder';
 // import ItemsFilterBar from '../../shared/ItemsFilterBar/ItemsFilterBar';
 
 // const ModalContext = React.createContext()
 
-const ItemBlock = ({ setModalActive, itemCardModalActive, setItemCardModalActive }: any) => {
+const ItemBlock = ({ }: any) => {
 
     // const [clickedType, setClickedType] = React.useState(0)
     // const [clickedSubType, setClickedSubType] = React.useState(0)
     // const [clickedStyle, setClickedStyle] = React.useState(0)
     // const [clickedKind, setClickedKind] = React.useState(0)
+    const [modalOrderActive, setModalOrderActive] = React.useState(false)
+    const [modalItemActive, setModalItemActive] = React.useState(false)
+    const [modalItemState, setModalItemState] = React.useState();
 
-    const [showItemModal, setShowItemModal] = React.useState();
     const [itemsState, setItemsState] = React.useState([]);
 
     React.useEffect(() => {
@@ -45,20 +48,25 @@ const ItemBlock = ({ setModalActive, itemCardModalActive, setItemCardModalActive
                     itemsState.map((obj: any) => (
                         <Item
                             key={obj.id}
-                            setShowItemModal={setShowItemModal}
-                            setItemCardModalActive={setItemCardModalActive}
-                            setModalActive={setModalActive}
+                            setModalItemState={setModalItemState}
+                            setModalItemActive={setModalItemActive}
+                            setModalOrderActive={setModalOrderActive}
                             obj={obj}
-                            name={obj.name}
-                            price={'От' + ' ' + obj.price + 'p'}
                             img={obj.imageUrl} />
                     ))
                 }
-                {/* <ItemCardModal
-                    setModalActive={setModalActive}
-                    showItemModal={showItemModal}
-                    itemCardModalActive={itemCardModalActive}
-                    setItemCardModalActive={setItemCardModalActive} /> */}
+                <ModalItem 
+                setModalOrderActive={setModalOrderActive}
+                modalItemState={modalItemState}
+                modalItemActive={modalItemActive}
+                setModalItemActive={setModalItemActive}
+                />
+
+                <ModalOrder 
+                active={modalOrderActive} 
+                setActive={setModalOrderActive}
+                />
+                
             </div>
         </Wrapper>
     )

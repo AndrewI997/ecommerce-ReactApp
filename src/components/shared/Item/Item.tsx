@@ -2,7 +2,7 @@ import React from 'react'
 import s from './item.module.scss'
 // import images from '../../../images/kitchen.webp'
 
-const Item = ({ obj, setModalActive, setItemCardModalActive, setShowItemModal }: any) => {
+const Item = ({ obj, setModalOrderActive, setModalItemActive, setModalItemState }: any) => {
 
   return (
     <>
@@ -18,10 +18,10 @@ const Item = ({ obj, setModalActive, setItemCardModalActive, setShowItemModal }:
           <p>Цена: <span className={s.price}>{obj.price}</span></p>
           <div className={s.toggleWrap}>
             <p className={s.toggleInfo} onClick={() => {
-              setItemCardModalActive(true)
-              setShowItemModal(obj)
+              setModalItemActive(true)
+              setModalItemState(obj)
             }}>Подробнее..</p>
-            <button className={s.toggleBuy} onClick={() => setModalActive(true)}>Заказать</button>
+            <button className={s.toggleBuy} onClick={() => setModalOrderActive(true)}>Заказать</button>
           </div>
         </div>
       </div>
