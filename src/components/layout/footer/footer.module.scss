@@ -1,8 +1,9 @@
 @import '../../../styles/variables';
 
 .footerWrap {
+    z-index: 10;
     position: relative;
-    height: 200px;
+    min-height: 50px;
     width: 100%;
     background-color: $bones1;
 }

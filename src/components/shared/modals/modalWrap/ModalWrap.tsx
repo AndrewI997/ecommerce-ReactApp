@@ -1,5 +1,5 @@
 import React from 'react'
-import s from './modal.module.scss'
+import s from './modalWrap.module.scss'
 
 const ModalWrap = ({ active, setActive, children }: any) => {
   return (

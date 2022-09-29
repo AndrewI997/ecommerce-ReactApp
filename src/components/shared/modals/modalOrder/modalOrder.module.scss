@@ -18,11 +18,22 @@
 
     input[type="submit"] {
         cursor: pointer;
-        margin-top: 30px;
+        margin-top: 10px;
         background: #C7A17A;
         // border-bottom: 4px solid #d87d56;
         color: white;
         font-size: 14px;
+    }
+
+    .phoneBtn {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        background: #C7A17A;
+        color: white;
+        text-align: center;
+        font-size: 14px;
+        border-radius: 20px;
     }
 
     textarea {
@@ -31,6 +42,8 @@
 
     h3 {
         margin-top: 0;
+        margin-bottom: 30px;
+        text-align: center;
         font-family: 'Roboto', sans-serif;
         font-weight: 500;
         font-size: 24px;

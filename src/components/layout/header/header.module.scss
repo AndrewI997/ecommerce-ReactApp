@@ -6,20 +6,24 @@ a:visited {
 }
 
 header {
+    min-height: 60px;
+    width: 100%;
     z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 200px;
+    // padding: 0 50px;
     background-color: $bones1;
 
     .logo {
-        position: relative;
+        position: absolute;
+        min-width: max-content;
+        left: 50px;
         display: flex;
         margin-right: 20px;
         font-weight: 700;
         font-size: 1.8rem;
-        color: #333333;
+        color: #415167;
         transition: 1.2s;
         width: max-content;
 
@@ -28,53 +32,68 @@ header {
             animation-name: jumpAnim;
             animation-iteration-count: infinite;
         }
+        @media screen and (max-width: 1596px) {
+            position: relative;
+            left: 0;
+        }
     }
 
-    .navigation {
+    .hedWrap {
 
-        ul {
-            min-width: max-content;
-            display: flex;
-            padding: 0;
-            margin: 0;
+        margin: 0 auto;
+        max-width: 1110px;
+        padding: 0 20px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .navigation {
 
-            .link {
+            ul {
+                min-width: max-content;
                 display: flex;
-                align-items: center;
-                height: 45px;
-                color: black;
-                font-weight: 300;
-                transition: 0.3s;
-                margin-right: 30px;
-
-                &:last-child {
-                    margin-right: 0;
-                }
-
-                &:hover {
-                    transform: translateY(-5px);
+                padding: 0;
+                margin: 0;
+    
+                .link {
+                    display: flex;
+                    align-items: center;
+                    height: 45px;
+                    color: black;
+                    font-weight: 300;
                     transition: 0.3s;
+                    margin-right: 30px;
+    
+                    &:last-child {
+                        margin-right: 0;
+                    }
+    
+                    &:hover {
+                        transform: translateY(-5px);
+                        transition: 0.3s;
+                    }
                 }
             }
         }
-    }
-}
+    
+        .phone {
+            height: 45px;
+            display: flex;
+            align-items: center;
+            margin-left: 5px;
+            font-size: 1.3rem;
+            font-weight: 300;
+            min-width: max-content;
+            color: black;
+    
+            &:hover {
+                animation-duration: 0.5s;
+                animation-name: jumpAnim;
+                animation-iteration-count: infinite;
+            }
+        }
 
-.phone {
-    height: 45px;
-    display: flex;
-    align-items: center;
-    margin-left: 5px;
-    font-size: 1.3rem;
-    font-weight: 300;
-    min-width: max-content;
-    color: black;
-
-    &:hover {
-        animation-duration: 0.5s;
-        animation-name: jumpAnim;
-        animation-iteration-count: infinite;
     }
+    
 }
 
 

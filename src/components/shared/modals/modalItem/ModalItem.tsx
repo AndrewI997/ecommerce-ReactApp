@@ -2,7 +2,7 @@ import React from 'react'
 import ModalWrap from '../modalWrap/ModalWrap'
 import s from './ModalItem.module.scss'
 
-const ModalItem = ({ modalItemActive, setModalItemActive, setModalOrderActive, modalItemState }: any) => {
+const ModalItem = ({ modalItemActive, setModalItemActive, setModalOrderActive, modalItemState, itemsState }: any) => {
   
   return (
     <ModalWrap active={modalItemActive} setActive={setModalItemActive} onClick={(e: Event) => e.stopPropagation()}>

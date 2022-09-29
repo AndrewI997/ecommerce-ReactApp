@@ -10,6 +10,7 @@ const Layout = ({ children }: PropsWithChildren) => {
     return (
         <div className={s.layoutWrapp}>
             <Header />
+            {/* <div className={s.contentScreen}></div> */}
             <main className={s.contentWrapp}>
                 {children}
             </main>

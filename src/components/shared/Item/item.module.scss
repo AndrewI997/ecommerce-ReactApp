@@ -13,8 +13,8 @@
   font-family: Nunito, sans-serif;
   max-width: 500px;
   background-color: $white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05), 0 5px 5px rgba(0, 0, 0, 0.05);
-  border: 1px solid $brown;
+  box-shadow: 0px 5px 8px 0px #0000004f;
+  // border: 1px solid #0000004f;
 
   .imgWrap {
     background-color: lightgray;
@@ -32,12 +32,18 @@
     padding: 10px;
 
     .title {
+      cursor: pointer;
       font-style: normal;
       font-weight: bold;
       font-size: 24px;
       line-height: 28px;
       color: #232C38;
       margin-top: 10px;
+      transition: 0.3s;
+
+      &:hover {
+        color: $brown;
+      }
     }
 
     .description {
@@ -74,11 +80,17 @@
         display: block;
         width: 134px;
         margin-left: 10px;
-        background: $brown;
+        background: $bones1;
         border-radius: 19px;
         text-align: center;
-        color: #F9FBFF;
+        color: #415167;
         border: none;
+        transition: 0.3s;
+
+        &:hover {
+          color: #F9FBFF;
+          background: $brown;
+        }
       }
 
       .toggleInfo {
@@ -86,6 +98,11 @@
         color: #415167;
         background: none;
         border: none;
+        transition: 0.3s;
+
+        &:hover {
+          color: $brown;
+        }
       }
     }
   }

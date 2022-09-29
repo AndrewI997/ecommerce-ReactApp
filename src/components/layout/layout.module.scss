@@ -1,11 +1,17 @@
-// .layoutWrapp {
-//      height: 200vh;
-// //     display: flex;
-//      flex-direction: column;
-
+.layoutWrapp {
+    height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    // overflow: hidden;
+    
+   
     .contentWrapp {
-        min-height: max-content;
+
+        overflow: scroll;
+        overflow-x:hidden;
         flex: 1 1 auto;
+        
     }
 
-//}
+}
