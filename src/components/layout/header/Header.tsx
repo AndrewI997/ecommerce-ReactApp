@@ -7,7 +7,7 @@ const Header = () => {
 
   return (
 
-    <header id="hed">
+    <header>
       <div className={s.hedWrap}>
       <NavLink className={s.logo} to={HOME_ROUTE}>Закажи Мебель</NavLink>
       

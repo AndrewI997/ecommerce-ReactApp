@@ -1,0 +1,14 @@
+.carousel {
+    position: relative;
+  }
+  
+  .carouselItem {
+    position: absolute;
+    visibility: hidden;
+    user-select: none; 
+  }
+
+  .visible {
+    visibility: visible;
+  }
+  

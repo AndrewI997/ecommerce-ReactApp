@@ -9,7 +9,7 @@ const FilterBar = ({ clickedType, setClickedType, clickedSubType, setClickedSubT
     const [kinds, setKinds] = React.useState([]);
 
     React.useEffect(() => {
-        fetch('http://localhost:4321/type')
+        fetch('http://localhost:4321/itemtype')
             .then((res) => {
                 return res.json()
             })
@@ -17,7 +17,7 @@ const FilterBar = ({ clickedType, setClickedType, clickedSubType, setClickedSubT
                 setTypes(items)
             })
 
-        fetch('http://localhost:4321/subtype')
+        fetch('http://localhost:4321/itemsubtype')
             .then((res) => {
                 return res.json()
             })
@@ -25,14 +25,14 @@ const FilterBar = ({ clickedType, setClickedType, clickedSubType, setClickedSubT
                 setSubTypes(items)
             })
 
-        fetch('http://localhost:4321/style')
+        fetch('http://localhost:4321/itemstyle')
             .then((res) => {
                 return res.json()
             })
             .then((items) => {
                 setStylesheets(items)
             })
-        fetch('http://localhost:4321/kind')
+        fetch('http://localhost:4321/itemkind')
             .then((res) => {
                 return res.json()
             })
@@ -43,13 +43,18 @@ const FilterBar = ({ clickedType, setClickedType, clickedSubType, setClickedSubT
 
     return (
         <div className={s.filterBarWrapper} >
-            {types.length ?  <div className={s.filterBarWrap} >
-                <h3>Тип:</h3>
+            {types.length ? <div className={s.filterBarWrap} >
+                {/* <h3>Тип:</h3> */}
                 <ul>
                     {
                         types.map((obj: any, i) => (
                             <li key={obj.id}
-                                onClick={() => setClickedType(i)}
+                                onClick={() => {
+                                    setClickedType(i)
+                                    if (clickedType === i) {
+                                        setClickedType(-1)
+                                    }
+                                }}
                                 className={clickedType === i ? s.active : ''}
                             >
                                 {obj.name}
@@ -59,13 +64,18 @@ const FilterBar = ({ clickedType, setClickedType, clickedSubType, setClickedSubT
                 </ul>
             </div> : <></>}
 
-            {subTypes.length ?  <div className={s.filterBarWrap} >
-                <h3>Подтип:</h3>
+            {subTypes.length ? <div className={s.filterBarWrap} >
+                {/* <h3>Подтип:</h3> */}
                 <ul>
                     {
                         subTypes.map((obj: any, i) => (
                             <li key={obj.id}
-                                onClick={() => setClickedSubType(i)}
+                                onClick={() => {
+                                    setClickedSubType(i)
+                                    if (clickedSubType === i) {
+                                        setClickedSubType(-1)
+                                    }
+                                }}
                                 className={clickedSubType === i ? s.active : ''}
                             >
                                 {obj.name}
@@ -76,12 +86,17 @@ const FilterBar = ({ clickedType, setClickedType, clickedSubType, setClickedSubT
             </div> : <></>}
 
             {stylesheets.length ? <div className={s.filterBarWrap} >
-                <h3>Стиль:</h3>
+                {/* <h3>Стиль:</h3> */}
                 <ul>
                     {
                         stylesheets.map((obj: any, i) => (
                             <li key={obj.name}
-                                onClick={() => setClickedStyle(i)}
+                                onClick={() => {
+                                    setClickedStyle(i)
+                                    if (clickedStyle === i) {
+                                        setClickedStyle(-1)
+                                    }
+                                }}
                                 className={clickedStyle === i ? s.active : ''}
                             >
                                 {obj.name}
@@ -92,25 +107,30 @@ const FilterBar = ({ clickedType, setClickedType, clickedSubType, setClickedSubT
             </div> : <></>}
 
             {kinds.length ? <div className={s.filterBarWrap} >
-                <h3>Вариация:</h3>
+                {/* <h3>Вариация:</h3> */}
                 <ul>
-                
+
                     {
                         kinds.map((obj: any, i) => (
-                            
+
                             <li key={obj.name}
-                                onClick={() => setClickedKind(i)}
+                                onClick={() => {
+                                    setClickedKind(i)
+                                    if (clickedKind === i) {
+                                        setClickedKind(-1)
+                                    }
+                                }}
                                 className={clickedKind === i ? s.active : ''}
                             >
                                 {obj.name}
                             </li>
                         ))
-                        
+
                     }
                 </ul>
             </div> : <></>}
         </div>
-  )
+    )
 }
 
 export default FilterBar

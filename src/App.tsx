@@ -4,6 +4,7 @@ import Layout from './components/layout/Layout';
 
 
 function App() {
+  console.log('render')
   return (
     <Layout>
       <AppRouter />

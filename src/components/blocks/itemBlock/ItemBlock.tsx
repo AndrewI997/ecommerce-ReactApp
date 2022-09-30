@@ -5,39 +5,101 @@ import s from './itemBlock.module.scss'
 import ModalItem from '../../shared/modals/modalItem/ModalItem';
 import ModalOrder from '../../shared/modals/modalOrder/ModalOrder';
 import FilterBar from '../../shared/filterBar/FilterBar';
-// import ItemsFilterBar from '../../shared/ItemsFilterBar/ItemsFilterBar';
 
-// const ModalContext = React.createContext()
 
 const ItemBlock = ({ }: any) => {
 
-    const [clickedType, setClickedType] = React.useState(0)
-    const [clickedSubType, setClickedSubType] = React.useState(0)
-    const [clickedStyle, setClickedStyle] = React.useState(0)
-    const [clickedKind, setClickedKind] = React.useState(0)
+    const [clickedType, setClickedType] = React.useState(-1)
+    const [clickedSubType, setClickedSubType] = React.useState(-1)
+    const [clickedStyle, setClickedStyle] = React.useState(-1)
+    const [clickedKind, setClickedKind] = React.useState(-1)
 
     const [modalOrderActive, setModalOrderActive] = React.useState(false)
     const [modalItemActive, setModalItemActive] = React.useState(false)
     const [modalItemState, setModalItemState] = React.useState({});
-
-
     const [itemsState, setItemsState] = React.useState([]);
 
-    const type = clickedType > 0 ? `/query/${clickedType.toString()}` : '';
-    const subType = clickedSubType > 0 ? `/${clickedSubType.toString()}` : '';
+    const type = clickedType >= 0 ? `/${clickedType + 1}` : '';
+    const subType = clickedSubType >= 0 ? `/${clickedSubType + 1}` : '';
+    const style = clickedStyle >= 0 ? `/${clickedStyle + 1}` : '';
 
-    console.log(type, subType)
-
+    console.log(type, subType, style)
 
     React.useEffect(() => {
-        fetch(`http://localhost:4321/item${type && subType ? type + subType : ''}`)
+        if(clickedType === -1 && clickedSubType === -1 && clickedStyle === -1) {
+            fetch(`http://localhost:4321/item/all`)
             .then((res) => {
                 return res.json()
             })
             .then((res) => {
                 setItemsState(res)
             })
-    }, [clickedType, clickedSubType])
+        }
+        if(clickedType+1 && clickedStyle === -1 && clickedSubType === -1) {
+            fetch(`http://localhost:4321/item/all${type}`)
+            .then((res) => {
+                return res.json()
+            })
+            .then((res) => {
+                setItemsState(res)
+            })
+        }
+        if (clickedType === -1 && clickedStyle === -1 && clickedSubType !== -1) {
+            fetch(`http://localhost:4321/item/subtype${subType}`)
+            .then((res) => {
+                return res.json()
+            })
+            .then((res) => {
+                setItemsState(res)
+            })
+        }
+        if (clickedType === -1 && clickedStyle+1 && clickedSubType === -1) {
+            fetch(`http://localhost:4321/item/style${style}`)
+            .then((res) => {
+                return res.json()
+            })
+            .then((res) => {
+                setItemsState(res)
+            })
+        }
+        if(clickedType+1 && clickedSubType+1 && clickedStyle === -1) {
+            fetch(`http://localhost:4321/item/all${type}${subType}`)
+            .then((res) => {
+                return res.json()
+            })
+            .then((res) => {
+                setItemsState(res)
+            })
+        }
+        if(clickedType+1 && clickedSubType+1 && clickedStyle+1) {
+            fetch(`http://localhost:4321/item/all${type}${subType}${style}`)
+            .then((res) => {
+                return res.json()
+            })
+            .then((res) => {
+                setItemsState(res)
+            })
+        }
+        if(clickedType+1 && clickedStyle+1 && clickedSubType === -1) {
+            fetch(`http://localhost:4321/item/typestyle${type}${style}`)
+            .then((res) => {
+                return res.json()
+            })
+            .then((res) => {
+                setItemsState(res)
+            })
+        }
+        if (clickedType === -1 && clickedStyle+1 && clickedSubType+1) {
+            fetch(`http://localhost:4321/item/subtypestyle${subType}${style}`)
+            .then((res) => {
+                return res.json()
+            })
+            .then((res) => {
+                setItemsState(res)
+            })
+        }
+        
+    }, [clickedType, clickedSubType, clickedStyle])
 
     return (
         <Wrapper className={s.wrapWrapper}>

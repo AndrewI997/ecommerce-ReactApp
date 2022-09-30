@@ -32,21 +32,23 @@
     padding: 10px;
 
     .title {
+      max-width: max-content;
       cursor: pointer;
       font-style: normal;
       font-weight: bold;
       font-size: 24px;
       line-height: 28px;
-      color: #232C38;
+      color: $brown;
       margin-top: 10px;
-      transition: 0.3s;
+      transition: 0.5s;
 
       &:hover {
-        color: $brown;
+        color: #232C38;
       }
     }
 
     .description {
+      pointer-events: none;
       font-weight: 300;
       font-size: 16px;
       line-height: 22px;
@@ -54,17 +56,23 @@
       margin: 20px 0;
     }
 
-    .price {
-      position: relative;
-      font-weight: 600;
-      font-size: 20px;
-      color: $brown;
+    p {
+      pointer-events: none;
+      .price {
+        
+        position: relative;
+        font-weight: 600;
+        font-size: 20px;
+        color: $brown;
+      }
     }
+
+    
 
     .toggleWrap {
       margin-top: 25px;
       display: flex;
-      justify-content: flex-start;
+      justify-content: center;
 
       .toggleBuy,
       .toggleInfo {
@@ -80,28 +88,34 @@
         display: block;
         width: 134px;
         margin-left: 10px;
-        background: $bones1;
+
         border-radius: 19px;
         text-align: center;
+        color: antiquewhite;
         color: #415167;
+        background: $bones1; 
         border: none;
-        transition: 0.3s;
+        transition: 0.5s;
 
         &:hover {
-          color: #F9FBFF;
-          background: $brown;
+          // background-color: rgb(67, 67, 67);
+                    // color: antiquewhite;
+          background: $bones2;
+          color: $brown; //#415167
+          // color: #415167;
+          // background: $bones2
         }
       }
 
       .toggleInfo {
         display: block;
-        color: #415167;
+        color: $bones2;
         background: none;
         border: none;
         transition: 0.3s;
 
         &:hover {
-          color: $brown;
+          color: #415167;
         }
       }
     }
