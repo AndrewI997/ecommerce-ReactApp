@@ -6,8 +6,8 @@ const FilterBar = ({ clickedType, setClickedType, clickedSubType, setClickedSubT
     const [types, setTypes] = React.useState([]);
     const [subTypes, setSubTypes] = React.useState([]);
     const [stylesheets, setStylesheets] = React.useState([]);
-    const [kinds, setKinds] = React.useState([]);
 
+console.log('filter')
     React.useEffect(() => {
         fetch('http://localhost:4321/itemtype')
             .then((res) => {
@@ -32,20 +32,22 @@ const FilterBar = ({ clickedType, setClickedType, clickedSubType, setClickedSubT
             .then((items) => {
                 setStylesheets(items)
             })
-        fetch('http://localhost:4321/itemkind')
-            .then((res) => {
-                return res.json()
-            })
-            .then((items) => {
-                setKinds(items)
-            })
+            console.log('filer FETCHED!')
     }, [])
 
+ 
     return (
         <div className={s.filterBarWrapper} >
             {types.length ? <div className={s.filterBarWrap} >
                 {/* <h3>Тип:</h3> */}
                 <ul>
+                    {/* <li onClick={() => {
+                                    setClickedType(-1)
+                                    if (clickedType === -1) {
+                                        setClickedType(-1)
+                                    }
+                                }}
+                                className={clickedType === -1 ? s.active : ''}>Все</li> */}
                     {
                         types.map((obj: any, i) => (
                             <li key={obj.id}
@@ -67,6 +69,13 @@ const FilterBar = ({ clickedType, setClickedType, clickedSubType, setClickedSubT
             {subTypes.length ? <div className={s.filterBarWrap} >
                 {/* <h3>Подтип:</h3> */}
                 <ul>
+                {/* <li onClick={() => {
+                                    setClickedSubType(-1)
+                                    if (clickedSubType === -1) {
+                                        setClickedSubType(-1)
+                                    }
+                                }}
+                                className={clickedSubType === -1 ? s.active : ''}>Все</li> */}
                     {
                         subTypes.map((obj: any, i) => (
                             <li key={obj.id}
@@ -88,6 +97,13 @@ const FilterBar = ({ clickedType, setClickedType, clickedSubType, setClickedSubT
             {stylesheets.length ? <div className={s.filterBarWrap} >
                 {/* <h3>Стиль:</h3> */}
                 <ul>
+                {/* <li onClick={() => {
+                                    setClickedStyle(-1)
+                                    if (clickedStyle === -1) {
+                                        setClickedStyle(-1)
+                                    }
+                                }}
+                                className={clickedStyle === -1 ? s.active : ''}>Все</li> */}
                     {
                         stylesheets.map((obj: any, i) => (
                             <li key={obj.name}
@@ -102,30 +118,6 @@ const FilterBar = ({ clickedType, setClickedType, clickedSubType, setClickedSubT
                                 {obj.name}
                             </li>
                         ))
-                    }
-                </ul>
-            </div> : <></>}
-
-            {kinds.length ? <div className={s.filterBarWrap} >
-                {/* <h3>Вариация:</h3> */}
-                <ul>
-
-                    {
-                        kinds.map((obj: any, i) => (
-
-                            <li key={obj.name}
-                                onClick={() => {
-                                    setClickedKind(i)
-                                    if (clickedKind === i) {
-                                        setClickedKind(-1)
-                                    }
-                                }}
-                                className={clickedKind === i ? s.active : ''}
-                            >
-                                {obj.name}
-                            </li>
-                        ))
-
                     }
                 </ul>
             </div> : <></>}

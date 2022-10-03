@@ -5,16 +5,32 @@
     // position: absolute;
     min-height: 50px;
     width: 100%;
-    background-color: $bones1;
+    background-color: $body;
+    border-top: 1px solid #26533081;
 
     .footerBar {
+        opacity: 0;
         position: absolute;
-        height: 100vh;
+        height: 45rem;
         width: 100%;
-        background-color: $bones2;
+        background-color: $body;
+        border-top: 1px solid #26533081;
         transition: 0.8s;
+        overflow: scroll;
+        overflow-x:hidden;
+        flex: 1 1 auto;
+        &::-webkit-scrollbar{
+            width: 5px;
+        }
+        &::-webkit-scrollbar-track {
+            background: $bones1;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $brown;
+        }
 
         &:hover {
+            opacity: 1;
             transform: translateY(-65vh);
         }
     }

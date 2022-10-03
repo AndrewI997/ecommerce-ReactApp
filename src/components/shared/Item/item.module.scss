@@ -13,8 +13,14 @@
   font-family: Nunito, sans-serif;
   max-width: 500px;
   background-color: $white;
-  box-shadow: 0px 5px 8px 0px #0000004f;
+  box-shadow: 0px 4px 5px 0px #0000002a;
+  transition: 0.3s;
   // border: 1px solid #0000004f;
+
+  &:hover {
+    transform: scale(1.04);
+    // box-shadow: 0px 10px 8px 0px #0000004f;
+  }
 
   .imgWrap {
     background-color: lightgray;
@@ -101,7 +107,7 @@
           // background-color: rgb(67, 67, 67);
                     // color: antiquewhite;
           background: $bones2;
-          color: $brown; //#415167
+          //#415167
           // color: #415167;
           // background: $bones2
         }

@@ -2,7 +2,7 @@ import React from 'react'
 import s from './carousel.module.scss'
 import Wrapper from '../wrapper/Wrapper';
 
-const Carousel = ({ carouselItems, ...rest }: any) => {
+const Carousel = ({ carouselItems }: any) => {
     const [active, setActive] = React.useState(0);
     let scrollInterval: any = null;
 
@@ -18,11 +18,11 @@ const Carousel = ({ carouselItems, ...rest }: any) => {
     return (
         <Wrapper>
             <div className={s.carousel}>
-                {carouselItems.map((item: any, index: any) => {
+                {carouselItems.map((item: any, index: number) => {
                     const activeClass = active === index ? s.visible : '';
                     return React.cloneElement(item, {
-                        ...rest,
-                        className: `${s.carouselItem + activeClass}`
+                        key: index,
+                        className: `${s.carouselItem + ' ' + activeClass}`
                     });
                 })}
             </div>

@@ -23,8 +23,6 @@ const ItemBlock = ({ }: any) => {
     const subType = clickedSubType >= 0 ? `/${clickedSubType + 1}` : '';
     const style = clickedStyle >= 0 ? `/${clickedStyle + 1}` : '';
 
-    console.log(type, subType, style)
-
     React.useEffect(() => {
         if(clickedType === -1 && clickedSubType === -1 && clickedStyle === -1) {
             fetch(`http://localhost:4321/item/all`)
@@ -98,6 +96,7 @@ const ItemBlock = ({ }: any) => {
                 setItemsState(res)
             })
         }
+        console.log('FETCHED')
         
     }, [clickedType, clickedSubType, clickedStyle])
 

@@ -7,7 +7,7 @@ const Item = ({ obj, setModalOrderActive, setModalItemActive, setModalItemState 
     <>
       <div className={s.card}>
         <div className={s.imgWrap}>
-          <img src={''} alt="picture" />
+          <img src={'src/diz-proekt-01.jpg'} alt="picture" />
         </div>
         <div className={s.contentWrap}>
           <h3 className={s.title} onClick={() => {

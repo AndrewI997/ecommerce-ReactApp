@@ -1,0 +1,10 @@
+@import '../../../../../styles/variables.scss';
+
+.slideWrap {
+    // width: 100%;
+    height: 100%;
+    background-color: $bones2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
