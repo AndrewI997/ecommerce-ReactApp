@@ -20,34 +20,34 @@
             justify-content: flex-start;
 
             li {
-                // min-width: max-content;
                 list-style: none;
                 cursor: pointer;
                 margin: 7px;
                 padding: 10px;
                 border-radius: 20px;
                 background-color: $bones1;
-                transition: 0.4s;
-
-                &.active {
-                    background-color: rgb(67, 67, 67);
-                    color: antiquewhite;
-                    transform: scale(1.12);
-
-                    // transform: translateY(-4px);
-
-                    &:hover {
-                        transform: scale(1.12);
-                        //transform: translateY(-4px);
-                        
-                    }
-                }
+                font-size: 17px;
+                color: rgb(65, 65, 65);
+                transition: 0.5s;
+                
 
                 &:hover {
-                    // transform: scale(1.1);
-                    box-shadow: inset 0px 0px 2px rgb(67, 67, 67);
-                    transform: scale(1.05);
-                    // transform: translateY(-1px);
+                    background-color: $logo2;
+                    color: antiquewhite;
+                }
+
+                &.active {
+                    background-color: $logo;
+                    color: antiquewhite;
+                    transform: scale(1.11);
+                    
+                    
+                    // .listTitle {
+                    //     transform: scale(0.87);
+                       
+                        
+                    // }
+                    
                 }
             }
         }

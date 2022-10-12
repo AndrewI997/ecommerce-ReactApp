@@ -59,7 +59,7 @@ console.log('filter')
                                 }}
                                 className={clickedType === i ? s.active : ''}
                             >
-                                {obj.name}
+                                <div className={s.listTitle}>{obj.name}</div>
                             </li>
                         ))
                     }
@@ -87,7 +87,7 @@ console.log('filter')
                                 }}
                                 className={clickedSubType === i ? s.active : ''}
                             >
-                                {obj.name}
+                                <div className={s.listTitle}>{obj.name}</div>
                             </li>
                         ))
                     }
@@ -115,7 +115,7 @@ console.log('filter')
                                 }}
                                 className={clickedStyle === i ? s.active : ''}
                             >
-                                {obj.name}
+                                <div className={s.listTitle}>{obj.name}</div>
                             </li>
                         ))
                     }

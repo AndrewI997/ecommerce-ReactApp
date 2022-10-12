@@ -1,21 +1,24 @@
 import React from 'react'
 import s from './item.module.scss'
 
-const Item = ({ obj, setModalOrderActive, setModalItemActive, setModalItemState }: any) => {
+const Item = ({ obj, setModalOrderActive, setModalItemActive, setClickedItem }: any) => {
 
   return (
     <>
       <div className={s.card}>
-        <div className={s.imgWrap}>
-          <img src={'src/diz-proekt-01.jpg'} alt="picture" />
+        <div className={s.imgWrap} onClick={() => {
+              setModalItemActive(true)
+              setClickedItem(obj)
+            }}>
+          <img src='./' alt='picture' />
         </div>
         <div className={s.contentWrap}>
           <h3 className={s.title} onClick={() => {
               setModalItemActive(true)
-              setModalItemState(obj)
+              setClickedItem(obj)
             }}>{obj.name}</h3>
           <p className={s.description}>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit dolor sit amet consectetur Lorem ipsum.
           </p>
           <p>Цена: <span className={s.price}>{obj.price}</span></p>
           <div className={s.toggleWrap}>

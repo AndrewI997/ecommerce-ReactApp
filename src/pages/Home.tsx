@@ -6,6 +6,7 @@ import SlideSecond from '../components/shared/carousel/slides/slide2/SlideSecond
 import SlideThird from '../components/shared/carousel/slides/slide3/SlideThird'
 
 const Home = () => {
+  
 
   return (
     <>

@@ -11,27 +11,31 @@
     .footerBar {
         opacity: 0;
         position: absolute;
-        height: 45rem;
+        height: 80vh;
         width: 100%;
         background-color: $body;
         border-top: 1px solid #26533081;
-        transition: 0.8s;
+        transition: 0.3s;
         overflow: scroll;
         overflow-x:hidden;
         flex: 1 1 auto;
         &::-webkit-scrollbar{
-            width: 5px;
+            width: 10px;
         }
         &::-webkit-scrollbar-track {
-            background: $bones1;
+            background: $bones2;
         }
         &::-webkit-scrollbar-thumb {
-            background-color: $brown;
+            background-color: $logo;
         }
 
         &:hover {
             opacity: 1;
-            transform: translateY(-65vh);
+            transform: translateY(-75vh);
+        }
+
+        .footerContent {
+            min-height: 200vh;
         }
     }
 }

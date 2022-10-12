@@ -16,7 +16,7 @@ const ItemBlock = ({ }: any) => {
 
     const [modalOrderActive, setModalOrderActive] = React.useState(false)
     const [modalItemActive, setModalItemActive] = React.useState(false)
-    const [modalItemState, setModalItemState] = React.useState({});
+    const [clickedItem, setClickedItem] = React.useState({});
     const [itemsState, setItemsState] = React.useState([]);
 
     const type = clickedType >= 0 ? `/${clickedType + 1}` : '';
@@ -117,7 +117,7 @@ const ItemBlock = ({ }: any) => {
                     itemsState.map((obj: any) => (
                         <Item
                             key={obj.id}
-                            setModalItemState={setModalItemState}
+                            setClickedItem={setClickedItem}
                             setModalItemActive={setModalItemActive}
                             setModalOrderActive={setModalOrderActive}
                             obj={obj}
@@ -127,7 +127,7 @@ const ItemBlock = ({ }: any) => {
                 <ModalItem 
                 itemsState={itemsState}
                 setModalOrderActive={setModalOrderActive}
-                modalItemState={modalItemState}
+                clickedItem={clickedItem}
                 modalItemActive={modalItemActive}
                 setModalItemActive={setModalItemActive}
                 />

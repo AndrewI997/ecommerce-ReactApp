@@ -1,8 +1,14 @@
 import React from 'react'
+import Wrapper from '../components/shared/wrapper/Wrapper'
 
 const Admin = () => {
   return (
-    <div>Admin</div>
+    <Wrapper>
+      <div>
+        ADM
+      </div>
+    </Wrapper>
+
   )
 }
 

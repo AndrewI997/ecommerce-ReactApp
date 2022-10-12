@@ -39,7 +39,7 @@ const ModalOrder = ({ active, setActive }: React.ComponentState) => {
     return (
         <ModalWrap active={active} setActive={setActive}>
             <div className={s.formInner}>
-                <h3>Закажите обратный звонок или позвоните:</h3>
+                <h3>Закажите обратный звонок или позвоните</h3>
                 <input required type="text" placeholder="Имя" value={personName} onChange={(e) => setPersonName(e.target.value)} />
                 <input required type="text" placeholder="Телефон" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
                 <textarea placeholder="Cообщение..." rows={3} value={description} onChange={(e) => setDescription(e.target.value)} ></textarea>

@@ -7,4 +7,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    h1 {
+        opacity: 0;
+        transform: translateY(-150px);
+     }
 }
