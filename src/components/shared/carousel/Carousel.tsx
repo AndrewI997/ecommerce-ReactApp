@@ -12,7 +12,7 @@ const Carousel = ({ carouselItems, }: any) => {
         if (!onHover) {
             scrollInterval = setTimeout(() => {
                 setActive((active + 1) % carouselItems.length)
-            }, 3000)
+            }, 3500)
         }
     })
 

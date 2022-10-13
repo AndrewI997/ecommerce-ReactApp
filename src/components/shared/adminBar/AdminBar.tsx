@@ -2,9 +2,11 @@ import React from 'react'
 import s from './adminBar.module.scss'
 
 const AdminBar = () => {
+    
     const [option1, setOption1] = React.useState('')
     const [option2, setOption2] = React.useState('')
     const [option3, setOption3] = React.useState('')
+
     const [types, setTypes] = React.useState([]);
     const [subTypes, setSubTypes] = React.useState([]);
     const [stylesheets, setStylesheets] = React.useState([]);
