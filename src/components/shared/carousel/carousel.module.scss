@@ -1,8 +1,41 @@
+@import '../../../styles/variables.scss';
+
 .carousel {
   position: relative;
   height: 30rem;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 200px;
+  // transition: 0.5s;
+
+  &:hover {
+    // transform: scale(1.05);
+    span {
+     
+        opacity: 1;
+      transform: scale(1);
+      pointer-events: all;
+      
+    }
+  }
+
+  span {
+    cursor: pointer;
+    background-color: $bones2;
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    opacity: 0;
+    transform: scale(0.1);
+    pointer-events: none;
+    transition: 0.5s;
+  }
+
+  .buttonNext {
+    right: 0;
+  }
+  .buttonPrev {
+  
+}
 
 
   .carouselItem {

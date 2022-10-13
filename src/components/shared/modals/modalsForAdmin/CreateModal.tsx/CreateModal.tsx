@@ -1,5 +1,5 @@
 import React from 'react'
-import ModalWrap from '../modalWrap/ModalWrap'
+import ModalWrap from '../../modalWrap/ModalWrap'
 import s from './itemCreateModal.module.scss'
 
 const ItemCreateModal = () => {

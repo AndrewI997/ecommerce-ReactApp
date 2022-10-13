@@ -21,13 +21,13 @@
     input[type="submit"] {
         cursor: pointer;
         margin-top: 10px;
-        background: $bones1;
+        background: $bones2;
         color: white;
         font-size: 18px;
         color: #707981;
         transition: 0.3s;
         &:hover {
-            background: $bones2;
+            background: $bones1;
         }
     }
 
@@ -35,7 +35,7 @@
         display: block;
         width: 100%;
         padding: 9px;
-        background: $bones1;
+        background: $bones2;
         color: white;
         text-align: center;
         font-size: 18px;
@@ -43,7 +43,7 @@
         color: #707981;
         transition: 0.3s;
         &:hover {
-            background: $bones2;
+            background: $bones1;
         }
     }
 
