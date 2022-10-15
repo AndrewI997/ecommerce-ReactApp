@@ -4,19 +4,18 @@ import Carousel from '../components/shared/carousel/Carousel'
 import SlideFirst from '../components/shared/carousel/slides/slide1/SlideFirst'
 import SlideSecond from '../components/shared/carousel/slides/slide2/SlideSecond'
 import SlideThird from '../components/shared/carousel/slides/slide3/SlideThird'
+import Wrapper from '../components/shared/wrapper/Wrapper'
 
 const Home = () => {
-  
+
 
   return (
-    <>
-      <Carousel carouselItems={[
-        <div><SlideFirst /></div>,
-        <div><SlideSecond /></div>,
-        <div><SlideThird /></div>
-      ]} />
-      <ItemBlock />
-    </>
+    <Carousel carouselItems={[
+      <div><SlideFirst /></div>,
+      <div><SlideSecond /></div>,
+      <div><SlideThird /></div>
+    ]} />
+
 
   )
 }

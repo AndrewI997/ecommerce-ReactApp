@@ -2,40 +2,15 @@
 
 .footerWrap {
     z-index: 10;
-    // position: absolute;
-    min-height: 50px;
+    position: relative;
     width: 100%;
-    background-color: $body;
-    border-top: 1px solid #26533081;
+    background-color: $bones2;
 
     .footerBar {
-        opacity: 0;
         position: absolute;
-        height: 80vh;
+        top: 0;left: 0;
         width: 100%;
-        background-color: $body;
-        border-top: 1px solid #26533081;
-        transition: 0.3s;
-        overflow: scroll;
-        overflow-x:hidden;
-        flex: 1 1 auto;
-        &::-webkit-scrollbar{
-            width: 10px;
-        }
-        &::-webkit-scrollbar-track {
-            background: $bones2;
-        }
-        &::-webkit-scrollbar-thumb {
-            background-color: $logo;
-        }
-
-        &:hover {
-            opacity: 1;
-            transform: translateY(-75vh);
-        }
-
-        .footerContent {
-            min-height: 200vh;
-        }
+        height: 1000px;
+        background-color: $brown;
     }
 }

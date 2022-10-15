@@ -1,10 +1,10 @@
 import React from 'react'
 import Item from '../../shared/Item/Item';
-import Wrapper from '../../shared/wrapper/Wrapper';
 import s from './itemBlock.module.scss'
 import ModalItem from '../../shared/modals/modalItem/ModalItem';
 import ModalOrder from '../../shared/modals/modalOrder/ModalOrder';
 import FilterBar from '../../shared/filterBar/FilterBar';
+import { CSSTransition, TransitionGroup } from "react-transition-group"
 
 
 const ItemBlock = ({ }: any) => {
@@ -24,84 +24,84 @@ const ItemBlock = ({ }: any) => {
     const style = clickedStyle >= 0 ? `/${clickedStyle + 1}` : '';
 
     React.useEffect(() => {
-        if(clickedType === -1 && clickedSubType === -1 && clickedStyle === -1) {
+        if (clickedType === -1 && clickedSubType === -1 && clickedStyle === -1) {
             fetch(`http://localhost:4321/item/all`)
-            .then((res) => {
-                return res.json()
-            })
-            .then((res) => {
-                setItemsState(res)
-            })
+                .then((res) => {
+                    return res.json()
+                })
+                .then((res) => {
+                    setItemsState(res)
+                })
         }
-        if(clickedType+1 && clickedStyle === -1 && clickedSubType === -1) {
+        if (clickedType + 1 && clickedStyle === -1 && clickedSubType === -1) {
             fetch(`http://localhost:4321/item/all${type}`)
-            .then((res) => {
-                return res.json()
-            })
-            .then((res) => {
-                setItemsState(res)
-            })
+                .then((res) => {
+                    return res.json()
+                })
+                .then((res) => {
+                    setItemsState(res)
+                })
         }
         if (clickedType === -1 && clickedStyle === -1 && clickedSubType !== -1) {
             fetch(`http://localhost:4321/item/subtype${subType}`)
-            .then((res) => {
-                return res.json()
-            })
-            .then((res) => {
-                setItemsState(res)
-            })
+                .then((res) => {
+                    return res.json()
+                })
+                .then((res) => {
+                    setItemsState(res)
+                })
         }
-        if (clickedType === -1 && clickedStyle+1 && clickedSubType === -1) {
+        if (clickedType === -1 && clickedStyle + 1 && clickedSubType === -1) {
             fetch(`http://localhost:4321/item/style${style}`)
-            .then((res) => {
-                return res.json()
-            })
-            .then((res) => {
-                setItemsState(res)
-            })
+                .then((res) => {
+                    return res.json()
+                })
+                .then((res) => {
+                    setItemsState(res)
+                })
         }
-        if(clickedType+1 && clickedSubType+1 && clickedStyle === -1) {
+        if (clickedType + 1 && clickedSubType + 1 && clickedStyle === -1) {
             fetch(`http://localhost:4321/item/all${type}${subType}`)
-            .then((res) => {
-                return res.json()
-            })
-            .then((res) => {
-                setItemsState(res)
-            })
+                .then((res) => {
+                    return res.json()
+                })
+                .then((res) => {
+                    setItemsState(res)
+                })
         }
-        if(clickedType+1 && clickedSubType+1 && clickedStyle+1) {
+        if (clickedType + 1 && clickedSubType + 1 && clickedStyle + 1) {
             fetch(`http://localhost:4321/item/all${type}${subType}${style}`)
-            .then((res) => {
-                return res.json()
-            })
-            .then((res) => {
-                setItemsState(res)
-            })
+                .then((res) => {
+                    return res.json()
+                })
+                .then((res) => {
+                    setItemsState(res)
+                })
         }
-        if(clickedType+1 && clickedStyle+1 && clickedSubType === -1) {
+        if (clickedType + 1 && clickedStyle + 1 && clickedSubType === -1) {
             fetch(`http://localhost:4321/item/typestyle${type}${style}`)
-            .then((res) => {
-                return res.json()
-            })
-            .then((res) => {
-                setItemsState(res)
-            })
+                .then((res) => {
+                    return res.json()
+                })
+                .then((res) => {
+                    setItemsState(res)
+                })
         }
-        if (clickedType === -1 && clickedStyle+1 && clickedSubType+1) {
+        if (clickedType === -1 && clickedStyle + 1 && clickedSubType + 1) {
             fetch(`http://localhost:4321/item/subtypestyle${subType}${style}`)
-            .then((res) => {
-                return res.json()
-            })
-            .then((res) => {
-                setItemsState(res)
-            })
+                .then((res) => {
+                    return res.json()
+                })
+                .then((res) => {
+                    setItemsState(res)
+                })
         }
         console.log('FETCHED')
-        
+
     }, [clickedType, clickedSubType, clickedStyle])
 
     return (
-        <Wrapper className={s.wrapWrapper}>
+        <div>
             <FilterBar
                 clickedType={clickedType}
                 setClickedType={(id: number) => setClickedType(id)}
@@ -110,33 +110,38 @@ const ItemBlock = ({ }: any) => {
                 clickedStyle={clickedStyle}
                 setClickedStyle={(id: number) => setClickedStyle(id)}
                 clickedKind={clickedKind}
-                setClickedKind={(id: number) => setClickedKind(id)} 
-                />
-            <div className={s.itemsBlockWrapp}>
-                {
-                    itemsState.map((obj: any) => (
+                setClickedKind={(id: number) => setClickedKind(id)}
+            />
+
+            <TransitionGroup className={s.itemsBlockWrapp}>
+                {itemsState.map((obj: any) => (
+                        <CSSTransition key={obj.id}
+                        timeout={400}
+                        classNames="item">
                         <Item
                             key={obj.id}
                             setClickedItem={setClickedItem}
                             setModalItemActive={setModalItemActive}
                             setModalOrderActive={setModalOrderActive}
                             obj={obj}
-                            img={obj.imageUrl} />
-                    ))
-                }
-                <ModalItem 
+                            img={obj.imageUrl}
+                        />
+                        </CSSTransition>
+                ))}
+            </TransitionGroup>
+
+            <ModalItem
                 itemsState={itemsState}
                 setModalOrderActive={setModalOrderActive}
                 clickedItem={clickedItem}
                 modalItemActive={modalItemActive}
                 setModalItemActive={setModalItemActive}
-                />
-                <ModalOrder 
-                active={modalOrderActive} 
+            />
+            <ModalOrder
+                active={modalOrderActive}
                 setActive={setModalOrderActive}
-                />
-            </div>
-        </Wrapper>
+            />
+        </div>
     )
 }
 

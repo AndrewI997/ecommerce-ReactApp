@@ -44,7 +44,7 @@ const ModalOrder = ({ active, setActive }: React.ComponentState) => {
                 <input required type="text" placeholder="Телефон" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
                 <textarea placeholder="Cообщение..." rows={3} value={description} onChange={(e) => setDescription(e.target.value)} ></textarea>
                 <input type="submit" value="Заказать" onClick={(e)=>sendToTelegram(e)} />
-                <h3>или</h3>
+                <h3 style={{fontSize: '18px'}} >или</h3>
                 <a href="tel:+79822239061" className={s.phoneBtn}>Позвонить</a>
             </div>
         </ModalWrap>

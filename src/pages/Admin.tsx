@@ -1,11 +1,11 @@
 import React from 'react'
 import Wrapper from '../components/shared/wrapper/Wrapper'
-import AdminBar from '../components/shared/adminBar/AdminBar'
+import CreateItem from '../components/shared/admin/createItem/CreateItem'
 
 const Admin = () => {
   return (
     <Wrapper>
-      <AdminBar />
+      <CreateItem />
     </Wrapper>
 
   )

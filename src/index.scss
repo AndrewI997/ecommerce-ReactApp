@@ -1,5 +1,7 @@
 @import './styles/normolize.css';
-  
+@import './styles/variables.scss';
+@import './styles/animations.scss';  
+
 * {
   padding: 0;
   margin: 0;
@@ -14,7 +16,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #eeebe6;
-  overflow-y: hidden;
+  overflow-x: hidden;
+  &::-webkit-scrollbar{
+    width: 5px;
+}
+&::-webkit-scrollbar-track {
+    background: $bones1;
+}
+&::-webkit-scrollbar-thumb {
+    background-color: $brown;
+}
   li {
     list-style: none;
   }

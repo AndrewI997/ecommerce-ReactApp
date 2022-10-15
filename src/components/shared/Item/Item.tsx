@@ -1,10 +1,10 @@
 import React from 'react'
 import s from './item.module.scss'
+import { CSSTransition } from 'react-transition-group'
 
 const Item = ({ obj, setModalOrderActive, setModalItemActive, setClickedItem }: any) => {
 
   return (
-    <>
       <div className={s.card}>
         <div className={s.imgWrap} onClick={() => {
               setModalItemActive(true)
@@ -30,7 +30,6 @@ const Item = ({ obj, setModalOrderActive, setModalItemActive, setClickedItem }: 
           </div>
         </div>
       </div>
-    </>
   )
 }
 

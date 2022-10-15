@@ -1,20 +1,20 @@
 @import '../../../styles/variables.scss';
 
-.filterBarWrapper {
+
+.filterBarWrap {
     min-width: max-content;
     margin: 0 auto;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    .filterBarWrap {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
+    .filterWrap {
+        margin-top: 10px;
 
         ul {
             width: 100%;
+            padding: 0;
             display: flex;
             flex-wrap: wrap;
             justify-content: flex-start;
@@ -29,7 +29,6 @@
                 font-size: 17px;
                 color: rgb(65, 65, 65);
                 transition: 0.5s;
-                
 
                 &:hover {
                     background-color: $logo2;
@@ -40,14 +39,6 @@
                     background-color: $logo;
                     color: antiquewhite;
                     transform: scale(1.11);
-                    
-                    
-                    // .listTitle {
-                    //     transform: scale(0.87);
-                       
-                        
-                    // }
-                    
                 }
             }
         }

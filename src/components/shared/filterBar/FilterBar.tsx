@@ -7,7 +7,8 @@ const FilterBar = ({ clickedType, setClickedType, clickedSubType, setClickedSubT
     const [subTypes, setSubTypes] = React.useState([]);
     const [stylesheets, setStylesheets] = React.useState([]);
 
-console.log('filter')
+    console.log('filter')
+
     React.useEffect(() => {
         fetch('http://localhost:4321/itemtype')
             .then((res) => {
@@ -32,95 +33,61 @@ console.log('filter')
             .then((items) => {
                 setStylesheets(items)
             })
-            console.log('filer FETCHED!')
+        console.log('filer FETCHED!')
     }, [])
 
- 
+
     return (
-        <div className={s.filterBarWrapper} >
-            {types.length ? <div className={s.filterBarWrap} >
-                {/* <h3>Тип:</h3> */}
-                <ul>
-                    {/* <li onClick={() => {
-                                    setClickedType(-1)
-                                    if (clickedType === -1) {
-                                        setClickedType(-1)
-                                    }
-                                }}
-                                className={clickedType === -1 ? s.active : ''}>Все</li> */}
-                    {
-                        types.map((obj: any, i) => (
+        <div className={s.filterBarWrap}>
+
+            {types.length ?
+                <div className={s.filterWrap} >
+                    <ul>
+                        {types.map((obj: any, i) => (
                             <li key={obj.id}
                                 onClick={() => {
                                     setClickedType(i)
-                                    if (clickedType === i) {
-                                        setClickedType(-1)
-                                    }
+                                    if (clickedType === i) setClickedType(-1)
                                 }}
                                 className={clickedType === i ? s.active : ''}
-                            >
-                                <div className={s.listTitle}>{obj.name}</div>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </div> : <></>}
+                            >{obj.name}</li>
+                        ))}
+                    </ul>
+                </div> : <></>
+            }
 
-            {subTypes.length ? <div className={s.filterBarWrap} >
-                {/* <h3>Подтип:</h3> */}
-                <ul>
-                {/* <li onClick={() => {
-                                    setClickedSubType(-1)
-                                    if (clickedSubType === -1) {
-                                        setClickedSubType(-1)
-                                    }
-                                }}
-                                className={clickedSubType === -1 ? s.active : ''}>Все</li> */}
-                    {
-                        subTypes.map((obj: any, i) => (
+            {subTypes.length ?
+                <div className={s.filterWrap}>
+                    <ul>
+                        {subTypes.map((obj: any, i) => (
                             <li key={obj.id}
                                 onClick={() => {
                                     setClickedSubType(i)
-                                    if (clickedSubType === i) {
-                                        setClickedSubType(-1)
-                                    }
+                                    if (clickedSubType === i) setClickedSubType(-1)
                                 }}
                                 className={clickedSubType === i ? s.active : ''}
-                            >
-                                <div className={s.listTitle}>{obj.name}</div>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </div> : <></>}
+                            >{obj.name}</li>
+                        ))}
+                    </ul>
+                </div> : <></>
+            }
 
-            {stylesheets.length ? <div className={s.filterBarWrap} >
-                {/* <h3>Стиль:</h3> */}
-                <ul>
-                {/* <li onClick={() => {
-                                    setClickedStyle(-1)
-                                    if (clickedStyle === -1) {
-                                        setClickedStyle(-1)
-                                    }
-                                }}
-                                className={clickedStyle === -1 ? s.active : ''}>Все</li> */}
-                    {
-                        stylesheets.map((obj: any, i) => (
+            {stylesheets.length ?
+                <div className={s.filterWrap} >
+                    <ul>
+                        {stylesheets.map((obj: any, i) => (
                             <li key={obj.name}
                                 onClick={() => {
                                     setClickedStyle(i)
-                                    if (clickedStyle === i) {
-                                        setClickedStyle(-1)
-                                    }
+                                    if (clickedStyle === i) setClickedStyle(-1)
                                 }}
                                 className={clickedStyle === i ? s.active : ''}
-                            >
-                                <div className={s.listTitle}>{obj.name}</div>
+                            >{obj.name}
                             </li>
-                        ))
-                    }
-                </ul>
-            </div> : <></>}
+                        ))}
+                    </ul>
+                </div> : <></>
+            }
         </div>
     )
 }

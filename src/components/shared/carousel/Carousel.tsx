@@ -17,7 +17,7 @@ const Carousel = ({ carouselItems, }: any) => {
     })
 
     return (
-        <Wrapper>
+        // <Wrapper>
             <div className={s.carousel}
 
                 onMouseEnter={() => {
@@ -48,7 +48,7 @@ const Carousel = ({ carouselItems, }: any) => {
                     }}
                 >NEXT</span>
             </div>
-        </Wrapper>
+        // </Wrapper>
 
     );
 };
