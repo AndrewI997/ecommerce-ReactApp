@@ -12,7 +12,7 @@ const AppRouter = () => {
         <TransitionGroup component={null} >
             <CSSTransition
                 key={location.key}
-                timeout={200}
+                timeout={600}
                 classNames='page'
             >
                 <Routes location={location}>

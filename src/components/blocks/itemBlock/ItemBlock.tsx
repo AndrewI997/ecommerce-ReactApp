@@ -3,25 +3,24 @@ import Item from '../../shared/Item/Item';
 import s from './itemBlock.module.scss'
 import ModalItem from '../../shared/modals/modalItem/ModalItem';
 import ModalOrder from '../../shared/modals/modalOrder/ModalOrder';
-import FilterBar from '../../shared/filterBar/FilterBar';
 import { CSSTransition, TransitionGroup } from "react-transition-group"
 
 
-const ItemBlock = ({ }: any) => {
-
-    const [clickedType, setClickedType] = React.useState(-1)
-    const [clickedSubType, setClickedSubType] = React.useState(-1)
-    const [clickedStyle, setClickedStyle] = React.useState(-1)
-    const [clickedKind, setClickedKind] = React.useState(-1)
+const ItemBlock = ({ clickedType, clickedSubType, clickedStyle }: any) => {
 
     const [modalOrderActive, setModalOrderActive] = React.useState(false)
     const [modalItemActive, setModalItemActive] = React.useState(false)
+
+    const [itemIndex, setItemIndex] = React.useState(-1);
+
     const [clickedItem, setClickedItem] = React.useState({});
     const [itemsState, setItemsState] = React.useState([]);
 
     const type = clickedType >= 0 ? `/${clickedType + 1}` : '';
     const subType = clickedSubType >= 0 ? `/${clickedSubType + 1}` : '';
     const style = clickedStyle >= 0 ? `/${clickedStyle + 1}` : '';
+
+
 
     React.useEffect(() => {
         if (clickedType === -1 && clickedSubType === -1 && clickedStyle === -1) {
@@ -101,36 +100,32 @@ const ItemBlock = ({ }: any) => {
     }, [clickedType, clickedSubType, clickedStyle])
 
     return (
-        <div>
-            <FilterBar
-                clickedType={clickedType}
-                setClickedType={(id: number) => setClickedType(id)}
-                clickedSubType={clickedSubType}
-                setClickedSubType={(id: number) => setClickedSubType(id)}
-                clickedStyle={clickedStyle}
-                setClickedStyle={(id: number) => setClickedStyle(id)}
-                clickedKind={clickedKind}
-                setClickedKind={(id: number) => setClickedKind(id)}
-            />
-
+        <>
             <TransitionGroup className={s.itemsBlockWrapp}>
-                {itemsState.map((obj: any) => (
-                        <CSSTransition key={obj.id}
+                {itemsState.map((obj: any, index: number) => (
+                    <CSSTransition key={obj.id}
                         timeout={400}
                         classNames="item">
                         <Item
-                            key={obj.id}
+                        // itemsState={itemsState}
+                            // key={obj.id}
                             setClickedItem={setClickedItem}
                             setModalItemActive={setModalItemActive}
                             setModalOrderActive={setModalOrderActive}
+                            setItemIndex={setItemIndex}
+                            // itemIndex={itemIndex}
                             obj={obj}
                             img={obj.imageUrl}
+                            index={index}
                         />
-                        </CSSTransition>
+                    </CSSTransition>
                 ))}
             </TransitionGroup>
 
             <ModalItem
+            setClickedItem={setClickedItem}
+            setItemIndex={setItemIndex}
+                itemIndex={itemIndex}
                 itemsState={itemsState}
                 setModalOrderActive={setModalOrderActive}
                 clickedItem={clickedItem}
@@ -141,7 +136,7 @@ const ItemBlock = ({ }: any) => {
                 active={modalOrderActive}
                 setActive={setModalOrderActive}
             />
-        </div>
+        </>
     )
 }
 

@@ -3,7 +3,7 @@ import About from '../pages/About';
 import Admin from '../pages/Admin';
 import Home from '../pages/Home';
 import Gallery from '../pages/Gallery';
-import ItemBlock from '../components/blocks/itemBlock/ItemBlock';
+import Catalog from '../pages/Catalog';
 import { ADMIN_ROUTE, HOME_ROUTE, GALLERY_ROUTE, ABOUT_ROUTE, CATALOG_ROUTE } from '../consts/consts';
 
 export const authRoutes = [
@@ -20,7 +20,7 @@ export const publicRoutes = [
     },
     {
         path: CATALOG_ROUTE,
-        element: <ItemBlock />,
+        element: <Catalog />,
         nodeRef: createRef()
     },
     {

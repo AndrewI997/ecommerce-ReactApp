@@ -58,13 +58,13 @@
     
     .page-enter {
       opacity: 0.2;
-      transform: translateX(-150%);
+      transform: translateX(150%);
     }
     
     .page-enter-active {
       opacity: 1;
       transform: translateX(0);
-      transition: opacity 300ms, transform 300ms;
+      transition: opacity 600ms, transform 600ms;
     }
     
     .page-exit {
@@ -73,6 +73,34 @@
     }
     
     .page-exit-active {
+      position: absolute;
+      opacity: 0;
+      transform: translateX(-150%);
+      transition: opacity 300ms, transform 600ms;
+    }
+
+    .itemModal {
+
+
+    }
+    
+    .itemModal-enter {
+      opacity: 0.2;
+      transform: translateX(-150%);
+    }
+    
+    .itemModal-enter-active {
+      opacity: 1;
+      transform: translateX(0);
+      transition: opacity 300ms, transform 300ms;
+    }
+    
+    .itemModal-exit {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .itemModal-exit-active {
       position: absolute;
       top: 0;left: 0;
   

@@ -1,9 +1,7 @@
 @import '../../../styles/variables.scss';
 @import '../../../styles/animations.scss';
 
-a:visited {
-    color: $black;
-}
+
 
 header {
     position: relative;
@@ -13,10 +11,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // box-shadow: inset 0px -3px 10px $brown;
-    border-bottom: 1px solid $bones1; //#26533081
-    // padding: 0 50px;
-    // background: linear-gradient($brown, $bones1);
+    background: $body;
+    border-bottom: 1px solid $bones1;
 
     .logo {
         position: absolute;
@@ -31,17 +27,11 @@ header {
         color: $logo;
         width: max-content;
 
-        // &:hover {
-        //     animation-duration: 0.5s;
-        //     animation-name: jumpAnim;
-        //     animation-iteration-count: infinite;
-        // }
         @media screen and (max-width: 1645px) {
             position: relative;
             left: 0;
             top: 0;
             transform: translateY(0);
-        // transform: translateY(-50%);
         }
     }
 
@@ -54,27 +44,26 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
         .navigation {
 
             ul {
                 min-width: max-content;
                 display: flex;
-                // padding: 0;
-                // margin: 0;
-    
+
                 .link {
                     display: flex;
                     align-items: center;
-                    height: 100px;
+                    height: 50px;
                     color: $logo2;
                     font-weight: 300;
                     transition: 0.3s;
                     margin-right: 30px;
-    
+
                     &:last-child {
                         margin-right: 0;
                     }
-    
+
                     &:hover {
                         color: $logo;
                         transform: translateY(-1px);
@@ -83,9 +72,9 @@ header {
                 }
             }
         }
-    
+
         .phone {
-            height: 100px;
+            height: 50px;
             display: flex;
             align-items: center;
             margin-left: 5px;
@@ -94,8 +83,7 @@ header {
             min-width: max-content;
             color: rgb(168, 67, 67);
             letter-spacing: 0px;
-            // transition: 0.3s;
-    
+
             &:hover {
                 animation-duration: 0.26s;
                 animation-name: jumpAnim;
@@ -103,9 +91,7 @@ header {
                 color: rgb(182, 0, 0);
             }
         }
-
     }
-    
 }
 
 

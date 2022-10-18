@@ -3,7 +3,7 @@ import ItemBlock from '../components/blocks/itemBlock/ItemBlock'
 
 const Gallery = () => {
   return (
-    <ItemBlock />
+    <></>
   )
 }
 

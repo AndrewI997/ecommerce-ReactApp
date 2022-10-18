@@ -1,14 +1,37 @@
 @import '../../styles/variables.scss';
 
 .layoutWrapp {
-    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
 
-}
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
 
-.content {
-    position: relative;
-    flex: 1 1 auto;
-    align-self: stretch;
+    &::-webkit-scrollbar-track {
+        background: $bones1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $brown;
+
+    }
+
+    .content {
+        margin: 0 auto;
+        max-width: 1110px;
+        padding: 0 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+
+    }
 }

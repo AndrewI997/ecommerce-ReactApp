@@ -1,10 +1,12 @@
 @import '../../../styles/variables.scss';
 
 .carousel {
-  position: relative;
-  height: 30rem;
+  position: absolute;
+
+  
+  height: 70vh;
   width: 100%;
-  margin: 100px 0 100px;
+  // margin: 0 auto;
   // transition: 0.5s;
 
   &:hover {
@@ -20,21 +22,27 @@
 
   span {
     cursor: pointer;
-    background-color: $bones2;
+    background-color: rgba(0, 0, 0, 0.171);
     position: absolute;
+    padding: 30px;
     top: 50%;
     z-index: 10;
     opacity: 0;
     transform: scale(0.1);
     pointer-events: none;
+    border-radius: 50%;
     transition: 0.5s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 
   .buttonNext {
-    right: 0;
+    right: 50px;
   }
   .buttonPrev {
-  
+  left: 50px;
 }
 
 

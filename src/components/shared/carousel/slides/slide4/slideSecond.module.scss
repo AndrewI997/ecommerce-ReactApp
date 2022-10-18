@@ -1,0 +1,15 @@
+@import '../../../../../styles/variables.scss';
+
+.slideWrap {
+    // width: 100%;
+    height: 100%;
+    background-color: $logo;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        opacity: 0;
+        transform: translateY(-150px);
+        transition: 2s;
+     } 
+}

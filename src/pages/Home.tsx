@@ -4,7 +4,8 @@ import Carousel from '../components/shared/carousel/Carousel'
 import SlideFirst from '../components/shared/carousel/slides/slide1/SlideFirst'
 import SlideSecond from '../components/shared/carousel/slides/slide2/SlideSecond'
 import SlideThird from '../components/shared/carousel/slides/slide3/SlideThird'
-import Wrapper from '../components/shared/wrapper/Wrapper'
+import SlideFive from '../components/shared/carousel/slides/slide5/SlideThird'
+import SlideFour from '../components/shared/carousel/slides/slide4/SlideSecond'
 
 const Home = () => {
 
@@ -13,7 +14,9 @@ const Home = () => {
     <Carousel carouselItems={[
       <div><SlideFirst /></div>,
       <div><SlideSecond /></div>,
-      <div><SlideThird /></div>
+      <div><SlideThird /></div>,
+      <div><SlideFour /></div>,
+      <div><SlideFive /></div>
     ]} />
 
 

@@ -37,7 +37,7 @@ const ModalOrder = ({ active, setActive }: React.ComponentState) => {
     }
     
     return (
-        <ModalWrap active={active} setActive={setActive}>
+        <ModalWrap active={active} setActive={setActive} style={{overflow: 'hidden'}}>
             <div className={s.formInner}>
                 <h3>Закажите обратный звонок или позвоните</h3>
                 <input required type="text" placeholder="Имя" value={personName} onChange={(e) => setPersonName(e.target.value)} />

@@ -1,12 +1,11 @@
 import React from 'react'
 import s from './carousel.module.scss'
-import Wrapper from '../wrapper/Wrapper';
 
 const Carousel = ({ carouselItems, }: any) => {
 
     let [onHover, setOnHover] = React.useState(false)
     const [active, setActive] = React.useState(0);
-    let scrollInterval: any = null;
+    let scrollInterval: any  = null;
 
     React.useEffect(() => {
         if (!onHover) {
@@ -17,7 +16,6 @@ const Carousel = ({ carouselItems, }: any) => {
     })
 
     return (
-        // <Wrapper>
             <div className={s.carousel}
 
                 onMouseEnter={() => {
@@ -38,18 +36,16 @@ const Carousel = ({ carouselItems, }: any) => {
                 <span className={s.buttonPrev}
                 
                     onClick={() => {
-                        setActive(active !== 0 ? Math.abs((active - 1) % carouselItems.length) : 2)
+                        setActive(active !== 0 ? Math.abs((active - 1) % carouselItems.length) : carouselItems.length - 1)
                     }}
-                >PREV</span>
+                >&#10094;</span>
                 <span className={s.buttonNext}
 
                     onClick={() => {
                         setActive((active + 1) % carouselItems.length)
                     }}
-                >NEXT</span>
+                >&#10095;</span>
             </div>
-        // </Wrapper>
-
     );
 };
 
