@@ -21,9 +21,6 @@
     }
 }
 
-.item {
-    position: relative;
-    }
     
     .item-enter {
       opacity: 0;
@@ -50,12 +47,6 @@
      
     }
     
-
-    .page {
-
-
-    }
-    
     .page-enter {
       opacity: 0.2;
       transform: translateX(150%);
@@ -69,7 +60,8 @@
     
     .page-exit {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateX(-150%);
+      transition: opacity 600ms, transform 600ms;
     }
     
     .page-exit-active {
@@ -79,33 +71,30 @@
       transition: opacity 300ms, transform 600ms;
     }
 
-    .itemModal {
 
 
-    }
     
-    .itemModal-enter {
-      opacity: 0.2;
-      transform: translateX(-150%);
-    }
-    
-    .itemModal-enter-active {
-      opacity: 1;
-      transform: translateX(0);
+    .transgroup-enter {
+      opacity: 0;
+      transform: scale(0.9);
       transition: opacity 300ms, transform 300ms;
     }
     
-    .itemModal-exit {
+    .transgroup-enter-active {
       opacity: 1;
-      transform: translateX(0);
+      transform: scale(1);
+  
     }
     
-    .itemModal-exit-active {
-      position: absolute;
-      top: 0;left: 0;
-  
-      opacity: 0.5;
-      transform: translateX(150%);
-      transition: opacity 0ms, transform 300ms;
+    .transgroup-exit {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 300ms, transform 300ms;
+    }
+    
+    .transgroup-exit-active {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 300ms, transform 300ms;
     }
     

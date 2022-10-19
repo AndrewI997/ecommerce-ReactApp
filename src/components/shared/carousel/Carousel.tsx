@@ -33,18 +33,18 @@ const Carousel = ({ carouselItems, }: any) => {
                         className: `${s.carouselItem + ' ' + activeClass}`,
                     })
                 })}
-                <span className={s.buttonPrev}
+                <div className={s.buttonPrev}
                 
                     onClick={() => {
                         setActive(active !== 0 ? Math.abs((active - 1) % carouselItems.length) : carouselItems.length - 1)
                     }}
-                >&#10094;</span>
-                <span className={s.buttonNext}
+                ><span>&#10094;</span></div>
+                <div className={s.buttonNext}
 
                     onClick={() => {
                         setActive((active + 1) % carouselItems.length)
                     }}
-                >&#10095;</span>
+                ><span>&#10095;</span></div>
             </div>
     );
 };

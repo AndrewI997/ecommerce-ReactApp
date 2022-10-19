@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import s from './createItem.module.scss'
+import { createItem } from '../../../../http/itemAPI'
 
 
 const AdminBar = () => {
@@ -18,20 +19,20 @@ const AdminBar = () => {
     const postItem = (e: any) => {
         if (option.trim() !== '' && option1.trim() !== '' && option2.trim() !== '' && option3.trim() !== '' && option4 !== '') {
             e.preventDefault()
-            axios.post('http://localhost:4321/item',
-                {
-                    name: option,
-                    type: option1,
-                    subType: option2,
-                    style: option3,
-                    price: option4
-                }
-            )
-            setOption('')
-            setOption1('')
-            setOption2('')
-            setOption3('')
-            setOption4('')
+            createItem({
+                name: option,
+                type: option1,
+                subType: option2,
+                style: option3,
+                price: option4
+            })
+            .then(data => {
+                setOption('')
+                setOption1('')
+                setOption2('')
+                setOption3('')
+                setOption4('')
+            })
         }
     }
 
@@ -64,6 +65,7 @@ const AdminBar = () => {
 
     return (
         <form className={s.adminBarWrap}>
+            <h3>Новый товар</h3>
             <div className={s.formWrap} >
 
                 <div className={s.inputWrap}>
@@ -181,7 +183,7 @@ const AdminBar = () => {
                 setOption5('')
             }}>очистить все</button>
             <button type='submit' onClick={(e) => postItem(e)} >СОЗДАТЬ</button>
-            
+
         </form>
     )
 }
