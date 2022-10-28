@@ -32,7 +32,7 @@ const ModalItem = ({ modalItemActive, setModalItemActive, setModalOrderActive, c
     <ModalWrap active={modalItemActive} setActive={setModalItemActive} onClick={(e: Event) => e.stopPropagation()}>
         <CSSTransition
         in={anim}
-        onEntered={() => setAnim(true)}
+      
           timeout={300}
           classNames='transgroup'
 
