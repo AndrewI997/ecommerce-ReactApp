@@ -12,30 +12,52 @@ const AdminBar = () => {
     const [style, setStyle] = React.useState('')
     const [price, setPrice] = React.useState('')
     const [option5, setOption5] = React.useState('')
-    const [images, setImages] = React.useState<ArrayLike<File> | Iterable<File> >([])
-// ArrayLike<File> | Iterable<File> | 
+    const [images, setImages] = React.useState<any | any[]>([])
+    // ArrayLike<File> | Iterable<File> |   <ArrayLike<File> | Iterable<File> >
     const [types, setTypes] = React.useState([]);
     const [subTypes, setSubTypes] = React.useState([]);
     const [stylesheets, setStylesheets] = React.useState([]);
 
-    const postItem = (e: any) => {
 
+    
+
+
+    const handleFiles = (files: any) => {
+        const uploaded = [...images]
+        if (Array.isArray(files)) {
+            files.some((file: any) => {
+                if (uploaded.findIndex((f) => f.name === file.name) === -1) {
+                    uploaded.push(file)
+                }
+            })
+        }
         
-        // .forEach(image => console.log(image))
-  
+        setImages(uploaded)
 
+        console.log(images)
+    }
+   
+const handleEventFile = (e: any) => {
+    const chousenFiles = (files: any) => Array.prototype.slice.call(e.currentTarget.files)
+    handleFiles(chousenFiles)
+}
+
+
+
+
+
+    
+    const postItem = (e: any) => {
         if (name.trim() !== '' && type.trim() !== '' && subType.trim() !== '' && style.trim() !== '' && price !== '') {
             e.preventDefault()
-            const item = new FormData
+            const item = new FormData()
             item.append('name', name)
             item.append('price', price)
-            item.append('type',  type)
+            item.append('type', type)
             item.append('subType', subType)
             item.append('style', style)
-            Array.from(images).map(file => item.append('images', file))
-            console.log(item)
-            
-            
+
+
             createItem(item)
                 .then(data => {
                     setName('')
@@ -45,7 +67,7 @@ const AdminBar = () => {
                     setPrice('')
                 })
         }
-        
+
     }
 
     React.useEffect(() => {
@@ -182,7 +204,7 @@ const AdminBar = () => {
                 <div className={s.inputWrap}>
                     <h4>фото:</h4>
                     <label>
-                        <input type='file' multiple onChange={(e) => setImages(e.currentTarget.files!)} style={{ maxWidth: 'max-content' }} />
+                        <input type='file' multiple onChange={(e) => handleEventFile(e)} style={{ maxWidth: 'max-content' }} />
                     </label>
                 </div>
 
@@ -195,10 +217,11 @@ const AdminBar = () => {
                 setSubType('')
                 setStyle('')
                 setPrice('')
-                setOption5('') 
+                setOption5('')
             }}>очистить все</button>
-            <button type='submit' onClick={(e) => {postItem(e)
-             }} >СОЗДАТЬ</button>
+            <button type='submit' onClick={(e) => {
+                postItem(e)
+            }} >СОЗДАТЬ</button>
 
         </form>
     )
