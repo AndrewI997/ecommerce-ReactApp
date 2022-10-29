@@ -2,38 +2,50 @@ import React from 'react'
 import axios from 'axios'
 import s from './createItem.module.scss'
 import { createItem } from '../../../../http/itemAPI'
+import { Blob } from 'buffer'
 
 
 const AdminBar = () => {
-    const [option, setOption] = React.useState('')
-    const [option1, setOption1] = React.useState('')
-    const [option2, setOption2] = React.useState('')
-    const [option3, setOption3] = React.useState('')
-    const [option4, setOption4] = React.useState('')
+    const [name, setName] = React.useState('')
+    const [type, setType] = React.useState('')
+    const [subType, setSubType] = React.useState('')
+    const [style, setStyle] = React.useState('')
+    const [price, setPrice] = React.useState('')
     const [option5, setOption5] = React.useState('')
-
+    const [images, setImages] = React.useState<ArrayLike<File> | Iterable<File> >([])
+// ArrayLike<File> | Iterable<File> | 
     const [types, setTypes] = React.useState([]);
     const [subTypes, setSubTypes] = React.useState([]);
     const [stylesheets, setStylesheets] = React.useState([]);
 
     const postItem = (e: any) => {
-        if (option.trim() !== '' && option1.trim() !== '' && option2.trim() !== '' && option3.trim() !== '' && option4 !== '') {
+
+        
+        // .forEach(image => console.log(image))
+  
+
+        if (name.trim() !== '' && type.trim() !== '' && subType.trim() !== '' && style.trim() !== '' && price !== '') {
             e.preventDefault()
-            createItem({
-                name: option,
-                type: option1,
-                subType: option2,
-                style: option3,
-                price: option4
-            })
-            .then(data => {
-                setOption('')
-                setOption1('')
-                setOption2('')
-                setOption3('')
-                setOption4('')
-            })
+            const item = new FormData
+            item.append('name', name)
+            item.append('price', price)
+            item.append('type',  type)
+            item.append('subType', subType)
+            item.append('style', style)
+            Array.from(images).map(file => item.append('images', file))
+            console.log(item)
+            
+            
+            createItem(item)
+                .then(data => {
+                    setName('')
+                    setType('')
+                    setSubType('')
+                    setStyle('')
+                    setPrice('')
+                })
         }
+        
     }
 
     React.useEffect(() => {
@@ -73,9 +85,9 @@ const AdminBar = () => {
                     <label>
                         <select
                             required
-                            value={option1}
+                            value={type}
                             onChange={(e) => {
-                                setOption1(e.target.value)
+                                setType(e.target.value)
                                 console.log(e.target.value)
                             }}>
                             <option defaultValue={''}></option>
@@ -85,8 +97,7 @@ const AdminBar = () => {
                         </select>
                         <button onClick={(e) => {
                             e.preventDefault()
-                            setOption1('')
-                            console.log(option1)
+                            setType('')
                         }}>&times;</button>
                     </label>
                 </div>
@@ -96,9 +107,9 @@ const AdminBar = () => {
                     <label>
                         <select
                             required
-                            value={option2}
+                            value={subType}
                             onChange={(e) => {
-                                setOption2(e.target.value)
+                                setSubType(e.target.value)
                                 console.log(e.target.value)
                             }}>
                             <option defaultValue={''}  ></option>
@@ -108,8 +119,7 @@ const AdminBar = () => {
                         </select>
                         <button onClick={(e) => {
                             e.preventDefault()
-                            setOption2('')
-                            console.log(option2)
+                            setSubType('')
                         }}>&times;</button>
                     </label>
                 </div>
@@ -119,9 +129,9 @@ const AdminBar = () => {
                     <label>
                         <select
                             required
-                            value={option3}
+                            value={style}
                             onChange={(e) => {
-                                setOption3(e.target.value)
+                                setStyle(e.target.value)
                                 console.log(e.target.value)
                             }}>
                             <option defaultValue={''} ></option>
@@ -131,19 +141,18 @@ const AdminBar = () => {
                         </select>
                         <button onClick={(e) => {
                             e.preventDefault()
-                            setOption3('')
-                            console.log(option3)
+                            setStyle('')
                         }}>&times;</button>
                     </label>
                 </div>
 
                 <div className={s.inputWrap}>
-                    <h4>имя:</h4>
+                    <h4>название:</h4>
                     <label>
-                        <input required type={'text'} value={option} onChange={(e) => setOption(e.target.value)} />
+                        <input type='text' value={name} onChange={(e) => setName(e.target.value)} />
                         <button onClick={(e) => {
                             e.preventDefault()
-                            setOption('')
+                            setName('')
                         }}>&times;</button>
                     </label>
                 </div>
@@ -151,11 +160,10 @@ const AdminBar = () => {
                 <div className={s.inputWrap}>
                     <h4>цена:</h4>
                     <label>
-                        <input required type={'text'} value={option4} onChange={(e) => setOption4(e.target.value)} />
+                        <input required type='text' value={price} onChange={(e) => setPrice(e.target.value)} />
                         <button onClick={(e) => {
                             e.preventDefault()
-                            setOption4('')
-                            console.log(option4)
+                            setPrice('')
                         }}>&times;</button>
                     </label>
                 </div>
@@ -163,7 +171,7 @@ const AdminBar = () => {
                 <div className={s.inputWrap}>
                     <h4>описание:</h4>
                     <label>
-                        <textarea value={option5} onChange={(e) => setOption5(e.target.value)} />
+                        <textarea value={option5} onChange={(e) => setOption5(e.target.value)} style={{ marginBottom: '5px' }} />
                         <button onClick={(e) => {
                             e.preventDefault()
                             setOption5('')
@@ -171,18 +179,26 @@ const AdminBar = () => {
                     </label>
                 </div>
 
+                <div className={s.inputWrap}>
+                    <h4>фото:</h4>
+                    <label>
+                        <input type='file' multiple onChange={(e) => setImages(e.currentTarget.files!)} style={{ maxWidth: 'max-content' }} />
+                    </label>
+                </div>
+
             </div>
 
             <button className={s.deleteBtn} onClick={(e) => {
                 e.preventDefault()
-                setOption('')
-                setOption1('')
-                setOption2('')
-                setOption3('')
-                setOption4('')
-                setOption5('')
+                setName('')
+                setType('')
+                setSubType('')
+                setStyle('')
+                setPrice('')
+                setOption5('') 
             }}>очистить все</button>
-            <button type='submit' onClick={(e) => postItem(e)} >СОЗДАТЬ</button>
+            <button type='submit' onClick={(e) => {postItem(e)
+             }} >СОЗДАТЬ</button>
 
         </form>
     )
