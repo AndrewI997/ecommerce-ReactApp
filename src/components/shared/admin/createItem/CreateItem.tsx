@@ -12,43 +12,45 @@ const AdminBar = () => {
     const [style, setStyle] = React.useState('')
     const [price, setPrice] = React.useState('')
     const [option5, setOption5] = React.useState('')
-    const [images, setImages] = React.useState<any | any[]>([])
+
     // ArrayLike<File> | Iterable<File> |   <ArrayLike<File> | Iterable<File> >
     const [types, setTypes] = React.useState([]);
     const [subTypes, setSubTypes] = React.useState([]);
     const [stylesheets, setStylesheets] = React.useState([]);
 
 
-    
 
 
-    const handleFiles = (files: any) => {
-        const uploaded = [...images]
-        if (Array.isArray(files)) {
-            files.some((file: any) => {
-                if (uploaded.findIndex((f) => f.name === file.name) === -1) {
-                    uploaded.push(file)
-                }
-            })
-        }
-        
-        setImages(uploaded)
 
-        console.log(images)
+    // const handleFiles = (files: any) => {
+    //     // const uploaded = [...images]
+    //     // if (Array.isArray(files)) {
+    //     //     files.some((file: any) => {
+    //     //         if (uploaded.findIndex((f) => f.name === file.name) === -1) {
+    //     //             uploaded.push(file)
+    //     //         }
+    //     //     })
+    //     // }
+
+    //     setImages(files)
+
+    //     console.log(images)
+    // }
+
+
+
+    // Array.prototype.slice.call()
+
+    const [images, setImages] = React.useState<any | any[]>([])
+
+    const handleEventFile = (e: any) => {
+        e.preventDefault();
+        setImages(e.currentTarget.files)
+
     }
-   
-const handleEventFile = (e: any) => {
-    const chousenFiles = (files: any) => Array.prototype.slice.call(e.currentTarget.files)
-    handleFiles(chousenFiles)
-}
 
-
-
-
-
-    
     const postItem = (e: any) => {
-        if (name.trim() !== '' && type.trim() !== '' && subType.trim() !== '' && style.trim() !== '' && price !== '') {
+        if (name.trim() !== '' && type.trim() !== '' && subType.trim() !== '' && style.trim() !== '' && price !== '' && images !== null) {
             e.preventDefault()
             const item = new FormData()
             item.append('name', name)
@@ -56,8 +58,9 @@ const handleEventFile = (e: any) => {
             item.append('type', type)
             item.append('subType', subType)
             item.append('style', style)
-
-
+            Array.from(images).forEach((element: any) => {
+                item.append('images', element)
+            })
             createItem(item)
                 .then(data => {
                     setName('')
@@ -67,7 +70,6 @@ const handleEventFile = (e: any) => {
                     setPrice('')
                 })
         }
-
     }
 
     React.useEffect(() => {
@@ -204,7 +206,7 @@ const handleEventFile = (e: any) => {
                 <div className={s.inputWrap}>
                     <h4>фото:</h4>
                     <label>
-                        <input type='file' multiple onChange={(e) => handleEventFile(e)} style={{ maxWidth: 'max-content' }} />
+                        <input type='file' multiple onChange={(e) => setImages(e.currentTarget.files)} style={{ maxWidth: 'max-content' }} />
                     </label>
                 </div>
 
