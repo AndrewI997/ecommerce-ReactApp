@@ -39,7 +39,9 @@ const ModalItem = ({ modalItemActive, setModalItemActive, setModalOrderActive, c
         >
           <div className={s.contentWrapper}>
             <div className={s.modalImgWrapp}>
-              <img src={image} alt="picture" />
+            {clickedItem?.images.map((image: string) => (
+                <img src={'http://localhost:4321/' + image} alt='picture' />
+              ))}
             </div>
             <div className={s.modalContentWrap}>
               <h3 className={s.title}>{clickedItem?.name}</h3>

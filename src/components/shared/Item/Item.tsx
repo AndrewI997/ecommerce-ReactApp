@@ -16,7 +16,9 @@ const Item = ({ obj, index, setModalOrderActive, setModalItemActive, setItemInde
               setClickedItem(obj)
               setItemIndex(index)
             }}>
-          <img src={image} alt='picture' />
+              {obj.images.map((image: string) => (
+                <img src={'http://localhost:4321/' + image} alt='picture' />
+              ))}
         </div>
         <div className={s.contentWrap}>
           <h3 className={s.title} onClick={() => {
