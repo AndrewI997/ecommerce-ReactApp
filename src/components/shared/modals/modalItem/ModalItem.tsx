@@ -36,7 +36,7 @@ console.log('modalItem render')
         >
           <div className={s.contentWrapper}>
             <div className={s.modalImgWrapp}>
-            {clickedItem?.images.map((image: string) => (
+            {clickedItem && clickedItem?.images.map((image: string) => (
                 <img src={'http://localhost:4321/' + image} alt='picture' />
               ))}
             </div>
