@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import ModalWrap from '../modalWrap/ModalWrap'
 import s from './ModalItem.module.scss'
 import image from '../../Item/image.jpg'
@@ -7,8 +7,6 @@ import { CSSTransition, SwitchTransition } from "react-transition-group"
 const ModalItem = ({ modalItemActive, setModalItemActive, setModalOrderActive, clickedItem, itemIndex, setItemIndex, setClickedItem, itemsState }: any) => {
 
   const [anim, setAnim] = React.useState(false)
-
-
 
   const nextItem = () => {
     if (itemsState.length - 1 > itemIndex) {
@@ -25,38 +23,42 @@ const ModalItem = ({ modalItemActive, setModalItemActive, setModalOrderActive, c
       setAnim(!anim)
     }
   }
-
-  const nodeRef = React.useRef(null);
+console.log('modalItem render')
 
   return (
     <ModalWrap active={modalItemActive} setActive={setModalItemActive} onClick={(e: Event) => e.stopPropagation()}>
-        <CSSTransition
+      <CSSTransition
         in={anim}
-      
-          timeout={300}
-          classNames='transgroup'
 
-        >
-          <div className={s.contentWrapper}>
-            <div className={s.modalImgWrapp}>
-              <img src={image} alt="picture" />
-            </div>
-            <div className={s.modalContentWrap}>
-              <h3 className={s.title}>{clickedItem?.name}</h3>
-              <p className={s.description}>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              </p>
-              <p>Цена: <span className={s.price}>{clickedItem?.price}</span></p>
-              <div className={s.toggleWrap}>
-                <button className={s.toggleBuy}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    setModalOrderActive(true)
-                  }}>Заказать</button>
-              </div>
+        timeout={300}
+        classNames='transgroup'
+
+      >
+        <div className={s.contentWrapper}>
+          <div className={s.modalImgWrapp}>
+            {
+              clickedItem ? clickedItem!.images.map((img: string) => (
+                <img key={img} src={'http://localhost:4321/' + img} alt='picture' />
+              ))
+            : null}
+
+          </div>
+          <div className={s.modalContentWrap}>
+            <h3 className={s.title}>{clickedItem?.name}</h3>
+            <p className={s.description}>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            </p>
+            <p>Цена: <span className={s.price}>{clickedItem?.price}</span></p>
+            <div className={s.toggleWrap}>
+              <button className={s.toggleBuy}
+                onClick={(e) => {
+                  e.preventDefault()
+                  setModalOrderActive(true)
+                }}>Заказать</button>
             </div>
           </div>
-        </CSSTransition>
+        </div>
+      </CSSTransition>
 
       {itemsState.length > 1 ? <div className={s.itemNavigate}>
         <span
