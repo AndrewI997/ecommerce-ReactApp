@@ -10,6 +10,7 @@ const Item = ({ obj, index, setModalOrderActive, setModalItemActive, setItemInde
   // }, [itemIndex])
 
   return (
+<<<<<<< HEAD
     <div className={s.card}>
       <div className={s.imgWrap} onClick={() => {
         setModalItemActive(true)
@@ -35,6 +36,30 @@ const Item = ({ obj, index, setModalOrderActive, setModalItemActive, setItemInde
         <p>Цена: <span className={s.price}>{obj.price}</span></p>
         <div className={s.toggleWrap}>
           {/* <p className={s.toggleInfo} onClick={() => {
+=======
+      <div className={s.card}>
+        <div className={s.imgWrap} onClick={() => {
+              setModalItemActive(true)
+              setClickedItem(obj)
+              setItemIndex(index)
+            }}>
+              {obj.images.map((image: string) => (
+                <img src={'http://localhost:4321/' + image} alt='picture' />
+              ))}
+        </div>
+        <div className={s.contentWrap}>
+          <h3 className={s.title} onClick={() => {
+              setModalItemActive(true)
+              setClickedItem(obj)
+              setItemIndex(index)
+            }}>{obj.name}</h3>
+          <p className={s.description}>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit dolor sit amet consectetur Lorem ipsum.
+          </p>
+          <p>Цена: <span className={s.price}>{obj.price}</span></p>
+          <div className={s.toggleWrap}>
+            {/* <p className={s.toggleInfo} onClick={() => {
+>>>>>>> refs/remotes/origin/main
               setModalItemActive(true)
               setModalItemState(obj)
             }}>Подробнее..</p> */}

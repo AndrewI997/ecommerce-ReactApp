@@ -33,32 +33,29 @@ console.log('modalItem render')
         timeout={300}
         classNames='transgroup'
 
-      >
-        <div className={s.contentWrapper}>
-          <div className={s.modalImgWrapp}>
-            {
-              clickedItem ? clickedItem!.images.map((img: string) => (
-                <img key={img} src={'http://localhost:4321/' + img} alt='picture' />
-              ))
-            : null}
-
-          </div>
-          <div className={s.modalContentWrap}>
-            <h3 className={s.title}>{clickedItem?.name}</h3>
-            <p className={s.description}>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            </p>
-            <p>Цена: <span className={s.price}>{clickedItem?.price}</span></p>
-            <div className={s.toggleWrap}>
-              <button className={s.toggleBuy}
-                onClick={(e) => {
-                  e.preventDefault()
-                  setModalOrderActive(true)
-                }}>Заказать</button>
+        >
+          <div className={s.contentWrapper}>
+            <div className={s.modalImgWrapp}>
+            {clickedItem?.images.map((image: string) => (
+                <img src={'http://localhost:4321/' + image} alt='picture' />
+              ))}
+            </div>
+            <div className={s.modalContentWrap}>
+              <h3 className={s.title}>{clickedItem?.name}</h3>
+              <p className={s.description}>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              </p>
+              <p>Цена: <span className={s.price}>{clickedItem?.price}</span></p>
+              <div className={s.toggleWrap}>
+                <button className={s.toggleBuy}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    setModalOrderActive(true)
+                  }}>Заказать</button>
+              </div>
             </div>
           </div>
-        </div>
-      </CSSTransition>
+        </CSSTransition>
 
       {itemsState.length > 1 ? <div className={s.itemNavigate}>
         <span

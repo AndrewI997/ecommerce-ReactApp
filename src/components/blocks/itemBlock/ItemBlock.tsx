@@ -13,7 +13,7 @@ const ItemBlock = ({ clickedType, clickedSubType, clickedStyle }: any) => {
 
     const [itemIndex, setItemIndex] = React.useState(-1);
 
-    const [clickedItem, setClickedItem] = React.useState(null);
+    const [clickedItem, setClickedItem] = React.useState({});
     const [itemsState, setItemsState] = React.useState([]);
 
     const type = clickedType >= 0 ? `/${clickedType + 1}` : '';
